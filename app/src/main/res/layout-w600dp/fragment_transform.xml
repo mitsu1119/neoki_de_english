@@ -5,6 +5,5 @@
     android:id="@+id/recyclerview_transform"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutManager="GridLayoutManager"
-    app:spanCount="4"
+    app:layoutManager="LinearLayoutManager"
     tools:context=".ui.transform.TransformFragment" />
