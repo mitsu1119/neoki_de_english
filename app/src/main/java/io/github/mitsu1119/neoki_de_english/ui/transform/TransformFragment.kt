@@ -1,18 +1,28 @@
 package io.github.mitsu1119.neoki_de_english.ui.transform
 
+import android.R.attr.button
+import android.annotation.SuppressLint
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.app.PendingIntent.getBroadcast
+import android.content.Context
+import android.content.Context.ALARM_SERVICE
+import android.content.Intent
+import android.icu.util.Calendar
 import android.os.Bundle
+import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.res.ResourcesCompat
+import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import io.github.mitsu1119.neoki_de_english.R
+import io.github.mitsu1119.neoki_de_english.AlarmReceiver
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentTransformBinding
 import io.github.mitsu1119.neoki_de_english.databinding.ItemTransformBinding
 
@@ -30,6 +40,7 @@ class TransformFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    @SuppressLint("UnspecifiedImmutableFlag")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,6 +56,18 @@ class TransformFragment : Fragment() {
         transformViewModel.texts.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
+
+        val btnAlarm = binding.btnAlarm
+        btnAlarm.setOnClickListener {
+            // アラームセット
+            val alarm: AlarmManager = context?.getSystemService(ALARM_SERVICE) as AlarmManager
+            val pending = Intent(context, AlarmReceiver::class.java).let { intent ->
+                getBroadcast(context, 0, intent, 0)
+            }
+            alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 5000, pending)
+            Toast.makeText(context, "Set Alarm ", Toast.LENGTH_SHORT).show()
+        }
+
         return root
     }
 

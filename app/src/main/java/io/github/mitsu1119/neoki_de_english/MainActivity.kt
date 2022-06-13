@@ -1,8 +1,13 @@
 package io.github.mitsu1119.neoki_de_english
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Intent
+import android.icu.util.Calendar
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
