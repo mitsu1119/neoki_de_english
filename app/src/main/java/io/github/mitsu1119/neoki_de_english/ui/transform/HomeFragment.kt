@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import io.github.mitsu1119.neoki_de_english.alarm.AlarmReceiver
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentHomeBinding
 import io.github.mitsu1119.neoki_de_english.databinding.ItemTransformBinding
@@ -62,6 +63,12 @@ class HomeFragment : Fragment() {
             }
             alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 5000, pending)
             Toast.makeText(context, "Set Alarm ", Toast.LENGTH_SHORT).show()
+        }
+
+        val btnAdd = binding.btnAdd
+        btnAdd.setOnClickListener { view ->
+            Snackbar.make(view, "Add Alarm", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
         }
 
         return root

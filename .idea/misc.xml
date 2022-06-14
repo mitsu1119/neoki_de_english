@@ -4,11 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout-w1240dp/app_bar_main.xml" value="0.20340136054421767" />
+        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout-w1240dp/content_main.xml" value="0.24761904761904763" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout-w600dp/app_bar_main.xml" value="0.2693693693693694" />
+        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout-w600dp/content_main.xml" value="0.2126126126126126" />
+        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout-w600dp/fragment_home.xml" value="0.3279279279279279" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout-w600dp/fragment_transform.xml" value="0.2" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout-w600dp/item_transform.xml" value="0.28854166666666664" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/app_bar_main.xml" value="0.15572916666666667" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/content_main.xml" value="0.25" />
+        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_menu2.xml" value="0.15572916666666667" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_reflow.xml" value="0.26927083333333335" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_settings.xml" value="0.26927083333333335" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_slideshow.xml" value="0.26927083333333335" />
