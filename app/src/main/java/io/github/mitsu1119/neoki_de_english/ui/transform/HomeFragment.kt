@@ -69,6 +69,7 @@ class HomeFragment : Fragment() {
         btnAdd.setOnClickListener { view ->
             Snackbar.make(view, "Add Alarm", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+            transformViewModel.addAlarm()
         }
 
         return root
