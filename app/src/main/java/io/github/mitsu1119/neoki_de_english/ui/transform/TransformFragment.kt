@@ -62,6 +62,7 @@ class TransformFragment : Fragment() {
             // アラームセット
             val alarm: AlarmManager = context?.getSystemService(ALARM_SERVICE) as AlarmManager
             val pending = Intent(context, AlarmReceiver::class.java).let { intent ->
+                intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND)
                 getBroadcast(context, 0, intent, 0)
             }
             alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 5000, pending)
