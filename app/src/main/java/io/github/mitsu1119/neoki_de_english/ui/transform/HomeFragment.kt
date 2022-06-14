@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import io.github.mitsu1119.neoki_de_english.alarm.AlarmReceiver
-import io.github.mitsu1119.neoki_de_english.databinding.FragmentTransformBinding
+import io.github.mitsu1119.neoki_de_english.databinding.FragmentHomeBinding
 import io.github.mitsu1119.neoki_de_english.databinding.ItemTransformBinding
 
 /**
@@ -29,7 +29,7 @@ import io.github.mitsu1119.neoki_de_english.databinding.ItemTransformBinding
  */
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentTransformBinding? = null
+    private var _binding: FragmentHomeBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -42,7 +42,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val transformViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-        _binding = FragmentTransformBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val recyclerView = binding.recyclerviewTransform

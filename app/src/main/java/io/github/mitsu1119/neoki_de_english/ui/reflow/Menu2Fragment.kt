@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import io.github.mitsu1119.neoki_de_english.databinding.FragmentReflowBinding
+import io.github.mitsu1119.neoki_de_english.databinding.FragmentMenu2Binding
 
 class Menu2Fragment : Fragment() {
 
-    private var _binding: FragmentReflowBinding? = null
+    private var _binding: FragmentMenu2Binding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,7 +25,7 @@ class Menu2Fragment : Fragment() {
         val reflowViewModel =
             ViewModelProvider(this).get(Menu2ViewModel::class.java)
 
-        _binding = FragmentReflowBinding.inflate(inflater, container, false)
+        _binding = FragmentMenu2Binding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textReflow
