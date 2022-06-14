@@ -27,7 +27,7 @@ import io.github.mitsu1119.neoki_de_english.databinding.ItemTransformBinding
  * the [RecyclerView] using LinearLayoutManager in a small screen
  * and shows items using GridLayoutManager in a large screen.
  */
-class TransformFragment : Fragment() {
+class HomeFragment : Fragment() {
 
     private var _binding: FragmentTransformBinding? = null
 
@@ -41,7 +41,7 @@ class TransformFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val transformViewModel = ViewModelProvider(this).get(TransformViewModel::class.java)
+        val transformViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = FragmentTransformBinding.inflate(inflater, container, false)
         val root: View = binding.root
 

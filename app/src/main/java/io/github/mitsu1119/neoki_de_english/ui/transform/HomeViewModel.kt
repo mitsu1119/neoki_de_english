@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.github.mitsu1119.neoki_de_english.alarm.AlarmSet
 
-class TransformViewModel : ViewModel() {
+class HomeViewModel : ViewModel() {
 
     private val _alarms = MutableLiveData<List<AlarmSet>>().apply() {
         value = List<AlarmSet>(16) { AlarmSet() }

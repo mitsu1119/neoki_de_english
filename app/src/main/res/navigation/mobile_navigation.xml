@@ -7,21 +7,21 @@
 
     <fragment
         android:id="@+id/nav_transform"
-        android:name="io.github.mitsu1119.neoki_de_english.ui.transform.TransformFragment"
+        android:name="io.github.mitsu1119.neoki_de_english.ui.transform.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_transform" />
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_reflow"
-        android:name="io.github.mitsu1119.neoki_de_english.ui.reflow.ReflowFragment"
+        android:name="io.github.mitsu1119.neoki_de_english.ui.reflow.Menu2Fragment"
         android:label="@string/menu_menu2"
-        tools:layout="@layout/fragment_reflow" />
+        tools:layout="@layout/fragment_menu2" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="io.github.mitsu1119.neoki_de_english.ui.slideshow.SlideshowFragment"
+        android:name="io.github.mitsu1119.neoki_de_english.ui.slideshow.Menu3Fragment"
         android:label="@string/menu_menu3"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_menu3" />
 
     <fragment
         android:id="@+id/nav_settings"
