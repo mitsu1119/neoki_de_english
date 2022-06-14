@@ -56,8 +56,6 @@ class HomeFragment : Fragment() {
         val btnAdd = binding.btnAdd
         btnAdd.setOnClickListener { view ->
             //　アラーム追加
-            Snackbar.make(view, "Add Alarm", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
             transformViewModel.addAlarm()
 
             // アラームを5秒後にセット

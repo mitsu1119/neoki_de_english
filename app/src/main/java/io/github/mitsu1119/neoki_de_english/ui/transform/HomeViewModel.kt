@@ -7,8 +7,8 @@ import io.github.mitsu1119.neoki_de_english.alarm.AlarmSet
 
 class HomeViewModel : ViewModel() {
 
-    private val _alarms = MutableLiveData<MutableList<AlarmSet>>().apply() {
-        value = MutableList(16) { AlarmSet() }
+    private val _alarms = MutableLiveData<MutableList<AlarmSet>>().apply {
+        value = mutableListOf()
     }
     fun addAlarm() {
         _alarms.value?.add(AlarmSet())
@@ -17,7 +17,7 @@ class HomeViewModel : ViewModel() {
     val alarms: LiveData<MutableList<AlarmSet>> = _alarms
 
     private val _texts = MutableLiveData<List<String>>().apply {
-        value = (0..(_alarms.value!!.size - 1)).mapIndexed { _, i ->
+        value = (0..(_alarms.value!!.size- 1)).mapIndexed { _, i ->
             _alarms.value?.get(i)?.date.toString() + " " + _alarms.value?.get(i)?.time.toString()
         }
     }
