@@ -8,19 +8,19 @@
     <fragment
         android:id="@+id/nav_transform"
         android:name="io.github.mitsu1119.neoki_de_english.ui.transform.TransformFragment"
-        android:label="@string/menu_transform"
+        android:label="@string/menu_home"
         tools:layout="@layout/fragment_transform" />
 
     <fragment
         android:id="@+id/nav_reflow"
         android:name="io.github.mitsu1119.neoki_de_english.ui.reflow.ReflowFragment"
-        android:label="@string/menu_reflow"
+        android:label="@string/menu_menu2"
         tools:layout="@layout/fragment_reflow" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="io.github.mitsu1119.neoki_de_english.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_menu3"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment

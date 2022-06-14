@@ -7,14 +7,14 @@
         <item
             android:id="@+id/nav_transform"
             android:icon="@drawable/ic_camera_black_24dp"
-            android:title="@string/menu_transform" />
+            android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_reflow"
             android:icon="@drawable/ic_gallery_black_24dp"
-            android:title="@string/menu_reflow" />
+            android:title="@string/menu_menu2" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_slideshow_black_24dp"
-            android:title="@string/menu_slideshow" />
+            android:title="@string/menu_menu3" />
     </group>
 </menu>
