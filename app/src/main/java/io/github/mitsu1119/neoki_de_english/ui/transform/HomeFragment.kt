@@ -53,9 +53,14 @@ class HomeFragment : Fragment() {
             adapter.submitList(it)
         }
 
-        val btnAlarm = binding.btnAlarm
-        btnAlarm.setOnClickListener {
-            // アラームセット
+        val btnAdd = binding.btnAdd
+        btnAdd.setOnClickListener { view ->
+            //　アラーム追加
+            Snackbar.make(view, "Add Alarm", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+            transformViewModel.addAlarm()
+
+            // アラームを5秒後にセット
             val alarm: AlarmManager = context?.getSystemService(ALARM_SERVICE) as AlarmManager
             val pending = Intent(context, AlarmReceiver::class.java).let { intent ->
                 intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND)
@@ -63,13 +68,6 @@ class HomeFragment : Fragment() {
             }
             alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 5000, pending)
             Toast.makeText(context, "Set Alarm ", Toast.LENGTH_SHORT).show()
-        }
-
-        val btnAdd = binding.btnAdd
-        btnAdd.setOnClickListener { view ->
-            Snackbar.make(view, "Add Alarm", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-            transformViewModel.addAlarm()
         }
 
         return root
