@@ -1,4 +1,4 @@
-package io.github.mitsu1119.neoki_de_english.ui.slideshow
+package io.github.mitsu1119.neoki_de_english.ui.menu3
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

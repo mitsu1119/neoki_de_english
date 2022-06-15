@@ -1,4 +1,4 @@
-package io.github.mitsu1119.neoki_de_english.ui.transform
+package io.github.mitsu1119.neoki_de_english.ui.home
 
 import android.annotation.SuppressLint
 import android.app.AlarmManager
@@ -17,7 +17,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.Snackbar
 import io.github.mitsu1119.neoki_de_english.alarm.AlarmReceiver
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentHomeBinding
 import io.github.mitsu1119.neoki_de_english.databinding.ItemTransformBinding

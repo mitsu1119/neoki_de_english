@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.reflow.Menu2Fragment">
+    tools:context=".ui.menu2.Menu2Fragment">
 
     <TextView
         android:id="@+id/text_reflow"
