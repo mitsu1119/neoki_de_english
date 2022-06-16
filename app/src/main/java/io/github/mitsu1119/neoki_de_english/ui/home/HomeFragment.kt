@@ -3,6 +3,8 @@ package io.github.mitsu1119.neoki_de_english.ui.home
 import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.app.PendingIntent.getBroadcast
+import android.app.TimePickerDialog
+import android.app.TimePickerDialog.OnTimeSetListener
 import android.content.Context.ALARM_SERVICE
 import android.content.Intent
 import android.os.Bundle
@@ -20,6 +22,8 @@ import androidx.recyclerview.widget.RecyclerView
 import io.github.mitsu1119.neoki_de_english.alarm.AlarmReceiver
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentHomeBinding
 import io.github.mitsu1119.neoki_de_english.databinding.ItemTransformBinding
+import java.util.*
+
 
 /**
  * Fragment that demonstrates a responsive layout pattern where the format of the content
@@ -57,6 +61,19 @@ class HomeFragment : Fragment() {
             //　アラーム追加
             transformViewModel.addAlarm()
 
+            val timePickerDialog = TimePickerDialog(context,
+                { view, hourOfDay, minute ->
+                    Toast.makeText(
+                        context,
+                        "$hourOfDay:$minute",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }, 0, 0, true
+            )
+            timePickerDialog.show()
+
+            /*
+
             // アラームを5秒後にセット
             val alarm: AlarmManager = context?.getSystemService(ALARM_SERVICE) as AlarmManager
             val pending = Intent(context, AlarmReceiver::class.java).let { intent ->
@@ -65,6 +82,7 @@ class HomeFragment : Fragment() {
             }
             alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 5000, pending)
             Toast.makeText(context, "Set Alarm ", Toast.LENGTH_SHORT).show()
+             */
         }
 
         return root
