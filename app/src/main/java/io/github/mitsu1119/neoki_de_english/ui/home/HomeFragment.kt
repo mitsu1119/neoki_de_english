@@ -68,21 +68,29 @@ class HomeFragment : Fragment() {
                         "$hourOfDay:$minute",
                         Toast.LENGTH_SHORT
                     ).show()
+
+                    val alarm: AlarmManager = context?.getSystemService(ALARM_SERVICE) as AlarmManager
+                    val pending = Intent(context, AlarmReceiver::class.java).let { intent ->
+                        intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND)
+                        getBroadcast(context, 0, intent, 0)
+                    }
+
+                    // アラームを入力された時刻にセット
+                    val cl = Calendar.getInstance()
+                    cl.timeInMillis  = System.currentTimeMillis()
+                    cl.set(Calendar.HOUR_OF_DAY, hourOfDay)
+                    cl.set(Calendar.MINUTE, minute)
+                    cl.set(Calendar.SECOND, 0)
+                    cl.set(Calendar.MILLISECOND, 0)
+                    alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, cl.timeInMillis, pending)
+
+                    // アラームを5秒後にセット
+                    // alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 5000, pending)
+
+                    Toast.makeText(context, "Set Alarm ", Toast.LENGTH_SHORT).show()
                 }, 0, 0, true
             )
             timePickerDialog.show()
-
-            /*
-
-            // アラームを5秒後にセット
-            val alarm: AlarmManager = context?.getSystemService(ALARM_SERVICE) as AlarmManager
-            val pending = Intent(context, AlarmReceiver::class.java).let { intent ->
-                intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND)
-                getBroadcast(context, 0, intent, 0)
-            }
-            alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 5000, pending)
-            Toast.makeText(context, "Set Alarm ", Toast.LENGTH_SHORT).show()
-             */
         }
 
         return root
