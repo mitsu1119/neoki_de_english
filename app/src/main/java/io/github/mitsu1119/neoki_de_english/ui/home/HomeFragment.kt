@@ -16,9 +16,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import io.github.mitsu1119.neoki_de_english.R
 import io.github.mitsu1119.neoki_de_english.alarm.AlarmReceiver
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentHomeBinding
 import io.github.mitsu1119.neoki_de_english.databinding.ItemTransformBinding
@@ -58,8 +60,11 @@ class HomeFragment : Fragment() {
 
         val btnAdd = binding.btnAdd
         btnAdd.setOnClickListener { view ->
+            findNavController().navigate(R.id.action_to_create_alarm)
+
+
             //　アラーム追加
-            transformViewModel.addAlarm()
+            /* transformViewModel.addAlarm()
 
             val timePickerDialog = TimePickerDialog(context,
                 { view, hourOfDay, minute ->
@@ -91,6 +96,7 @@ class HomeFragment : Fragment() {
                 }, 0, 0, true
             )
             timePickerDialog.show()
+             */
         }
 
         return root

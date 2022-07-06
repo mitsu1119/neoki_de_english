@@ -1,4 +1,4 @@
-package io.github.mitsu1119.neoki_de_english.ui.dictionary
+package io.github.mitsu1119.neoki_de_english.ui.create_alarm
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,13 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import io.github.mitsu1119.neoki_de_english.R
-import io.github.mitsu1119.neoki_de_english.databinding.FragmentDictionaryBinding
+import io.github.mitsu1119.neoki_de_english.databinding.FragmentCreateAlarmBinding
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentTitleBinding
 import io.github.mitsu1119.neoki_de_english.ui.title.TitleViewModel
 
-class DictionaryFragment : Fragment() {
+class CreateAlarmFragment : Fragment() {
 
-    private var _binding: FragmentDictionaryBinding? = null
+    private var _binding: FragmentCreateAlarmBinding? = null
 
     private val binding get() = _binding!!
 
@@ -25,21 +25,9 @@ class DictionaryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val transformViewModel = ViewModelProvider(this).get(DictionaryViewModel::class.java)
-        _binding = FragmentDictionaryBinding.inflate(inflater, container, false)
+        val transformViewModel = ViewModelProvider(this).get(CreateAlarmViewModel::class.java)
+        _binding = FragmentCreateAlarmBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        val btnLocalDic = binding.btnLocalDic
-        btnLocalDic.setOnClickListener { view ->
-        }
-
-        val btnUpload = binding.btnUpload
-        btnUpload.setOnClickListener { view ->
-        }
-
-        val btnDownload = binding.btnDownload
-        btnDownload.setOnClickListener { view ->
-        }
 
         return root
     }

@@ -6,12 +6,6 @@
     app:startDestination="@+id/nav_title">
 
     <fragment
-        android:id="@+id/nav_transform"
-        android:name="io.github.mitsu1119.neoki_de_english.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
-
-    <fragment
         android:id="@+id/nav_reflow"
         android:name="io.github.mitsu1119.neoki_de_english.ui.menu2.Menu2Fragment"
         android:label="@string/menu_menu2"
@@ -43,10 +37,26 @@
     </fragment>
 
     <fragment
+        android:id="@+id/nav_transform"
+        android:name="io.github.mitsu1119.neoki_de_english.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_to_create_alarm"
+            app:destination="@id/nav_create_alarm"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_create_alarm"
+        android:name="io.github.mitsu1119.neoki_de_english.ui.create_alarm.CreateAlarmFragment"
+        android:label="CreateAlarm"
+        tools:layout="@layout/fragment_create_alarm">
+    </fragment>
+
+    <fragment
         android:id="@+id/nav_dictionary"
         android:name="io.github.mitsu1119.neoki_de_english.ui.dictionary.DictionaryFragment"
         android:label="Dictionary"
         tools:layout="@layout/fragment_dictionary">
-
     </fragment>
 </navigation>
