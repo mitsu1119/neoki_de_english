@@ -40,6 +40,8 @@ class WordsFragment: Fragment() {
         _binding = FragmentWordsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        internalDir = requireContext().filesDir
+
         val dicName = args.dicName
         transformViewModel.setDicName(dicName)
 
@@ -58,7 +60,7 @@ class WordsFragment: Fragment() {
 
             // OKボタン
             nameInputDialog.setPositiveButton("OK") { dialog, _ ->
-                Toast.makeText(context, editEnglish.text.toString() + editJapanese.text.toString(), Toast.LENGTH_SHORT).show()
+                DicSet.recording(internalDir, dicName, editEnglish.text.toString(), editJapanese.text.toString())
                 dialog.dismiss()
             }
 
