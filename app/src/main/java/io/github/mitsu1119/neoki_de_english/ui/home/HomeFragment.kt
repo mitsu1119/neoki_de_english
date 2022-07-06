@@ -82,10 +82,10 @@ class HomeFragment : Fragment() {
                     cl.set(Calendar.MINUTE, minute)
                     cl.set(Calendar.SECOND, 0)
                     cl.set(Calendar.MILLISECOND, 0)
-                    alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, cl.timeInMillis, pending)
+                    // alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, cl.timeInMillis, pending)
 
                     // アラームを5秒後にセット
-                    // alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 5000, pending)
+                    alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 5000, pending)
 
                     Toast.makeText(context, "Set Alarm ", Toast.LENGTH_SHORT).show()
                 }, 0, 0, true

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_transform">
+    app:startDestination="@+id/nav_title">
 
     <fragment
         android:id="@+id/nav_transform"
@@ -28,4 +28,14 @@
         android:name="io.github.mitsu1119.neoki_de_english.ui.settings.SettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/nav_title"
+        android:name="io.github.mitsu1119.neoki_de_english.ui.title.TitleFragment"
+        android:label="Title"
+        tools:layout="@layout/fragment_title">
+        <action
+            android:id="@+id/action_to_home"
+            app:destination="@id/nav_transform"/>
+    </fragment>
 </navigation>
