@@ -55,7 +55,7 @@ class LocalDictionaryFragment: Fragment() {
 
         adapter.itemClickListener = object: LocalDicAdapter.OnItemClickListener {
             override fun onItemClick(holder: LocalDicViewHolder): Boolean {
-                Toast.makeText(context, holder.textView.text.toString(), Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_to_words)
                 return true
             }
         }

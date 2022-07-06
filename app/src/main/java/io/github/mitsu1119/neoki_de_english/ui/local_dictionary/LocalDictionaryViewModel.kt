@@ -12,7 +12,9 @@ class LocalDictionaryViewModel: ViewModel() {
         value = mutableListOf()
     }
     fun loadDicNames(internalDir: File) {
-        for(name in DicSet.getDicNames(internalDir)) addDicName(name)
+        for(name in DicSet.getDicNames(internalDir)) {
+           if(!dicNames.value!!.contains(name)) addDicName(name)
+        }
     }
     fun addDicName(name: String) {
         _dicNames.value?.add(name)
