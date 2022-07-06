@@ -1,29 +1,21 @@
-package io.github.mitsu1119.neoki_de_english.ui.title
+package io.github.mitsu1119.neoki_de_english.ui.dictionary
 
 import android.annotation.SuppressLint
-import android.app.AlarmManager
-import android.app.PendingIntent
-import android.app.TimePickerDialog
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import io.github.mitsu1119.neoki_de_english.R
+import io.github.mitsu1119.neoki_de_english.databinding.FragmentDictionaryBinding
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentTitleBinding
-import io.github.mitsu1119.neoki_de_english.ui.home.HomeFragment
-import java.util.*
+import io.github.mitsu1119.neoki_de_english.ui.title.TitleViewModel
 
-class TitleFragment : Fragment() {
+class DictionaryFragment : Fragment() {
 
-    private var _binding: FragmentTitleBinding? = null
+    private var _binding: FragmentDictionaryBinding? = null
 
     private val binding get() = _binding!!
 
@@ -33,18 +25,21 @@ class TitleFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val transformViewModel = ViewModelProvider(this).get(TitleViewModel::class.java)
-        _binding = FragmentTitleBinding.inflate(inflater, container, false)
+        val transformViewModel = ViewModelProvider(this).get(DictionaryViewModel::class.java)
+        _binding = FragmentDictionaryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val btnAlarm = binding.btnAlarm
-        btnAlarm.setOnClickListener { view ->
+        val btnLocalDic = binding.btnLocalDic
+        btnLocalDic.setOnClickListener { view ->
             findNavController().navigate(R.id.action_to_home)
         }
 
-        val btnDictionary = binding.btnDic
-        btnDictionary.setOnClickListener { view ->
-            findNavController().navigate(R.id.action_to_dictionary)
+        val btnUpload = binding.btnUpload
+        btnUpload.setOnClickListener { view ->
+        }
+
+        val btnDownload = binding.btnDownload
+        btnDownload.setOnClickListener { view ->
         }
 
         return root

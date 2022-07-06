@@ -37,5 +37,16 @@
         <action
             android:id="@+id/action_to_home"
             app:destination="@id/nav_transform"/>
+        <action
+            android:id="@+id/action_to_dictionary"
+            app:destination="@id/nav_dictionary"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_dictionary"
+        android:name="io.github.mitsu1119.neoki_de_english.ui.dictionary.DictionaryFragment"
+        android:label="Dictionary"
+        tools:layout="@layout/fragment_dictionary">
+
     </fragment>
 </navigation>
