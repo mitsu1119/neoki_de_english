@@ -9,7 +9,9 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -25,6 +27,7 @@ import io.github.mitsu1119.neoki_de_english.dictionary.DicSet
 import io.github.mitsu1119.neoki_de_english.ui.home.HomeFragment
 import io.github.mitsu1119.neoki_de_english.ui.title.TitleViewModel
 import java.io.File
+import kotlin.contracts.contract
 
 class LocalDictionaryFragment: Fragment() {
     private var _binding: FragmentLocalDictionaryBinding? = null
@@ -48,6 +51,13 @@ class LocalDictionaryFragment: Fragment() {
         recyclerView.adapter = adapter
         transformViewModel.dicNames.observe(viewLifecycleOwner) {
             adapter.submitList(it)
+        }
+
+        adapter.itemClickListener = object: LocalDicAdapter.OnItemClickListener {
+            override fun onItemClick(holder: LocalDicViewHolder): Boolean {
+                Toast.makeText(context, holder.textView.text.toString(), Toast.LENGTH_SHORT).show()
+                return true
+            }
         }
 
         internalDir = requireContext().filesDir
@@ -123,7 +133,16 @@ class LocalDictionaryFragment: Fragment() {
         }
 
         override fun onBindViewHolder(holder: LocalDicViewHolder, position: Int) {
-            holder.textView.text = getItem(position)
+            val name = getItem(position)
+            holder.textView.text = name
+            holder.itemView.setOnClickListener {
+                itemClickListener?.onItemClick(holder)
+            }
+        }
+
+        var itemClickListener: OnItemClickListener? = null
+        interface OnItemClickListener {
+            fun onItemClick(holder: LocalDicViewHolder): Boolean
         }
     }
 
