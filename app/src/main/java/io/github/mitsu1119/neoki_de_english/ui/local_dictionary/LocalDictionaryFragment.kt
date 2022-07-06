@@ -9,14 +9,20 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 import io.github.mitsu1119.neoki_de_english.R
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentLocalDictionaryBinding
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentTitleBinding
+import io.github.mitsu1119.neoki_de_english.databinding.ItemTransformBinding
 import io.github.mitsu1119.neoki_de_english.dictionary.DicSet
+import io.github.mitsu1119.neoki_de_english.ui.home.HomeFragment
 import io.github.mitsu1119.neoki_de_english.ui.title.TitleViewModel
 import java.io.File
 
@@ -37,6 +43,13 @@ class LocalDictionaryFragment: Fragment() {
         _binding = FragmentLocalDictionaryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        val recyclerView = binding.recyclerView
+        val adapter = LocalDicAdapter()
+        recyclerView.adapter = adapter
+        transformViewModel.dicNames.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
+
         internalDir = requireContext().filesDir
         transformViewModel.loadDicNames(internalDir)
 
@@ -55,6 +68,7 @@ class LocalDictionaryFragment: Fragment() {
             nameInputDialog.setPositiveButton("OK") { dialog, _ ->
                 dialog.dismiss()
                 DicSet.create(internalDir, editText.text.toString())
+                transformViewModel.addDicName(editText.text.toString())
             }
 
             // キャンセルボタンでキャンセル
@@ -91,5 +105,31 @@ class LocalDictionaryFragment: Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    class LocalDicAdapter :
+        ListAdapter<String, LocalDicViewHolder>(object : DiffUtil.ItemCallback<String>() {
+
+            override fun areItemsTheSame(oldItem: String, newItem: String): Boolean =
+                oldItem == newItem
+
+            override fun areContentsTheSame(oldItem: String, newItem: String): Boolean =
+                oldItem == newItem
+        }) {
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LocalDicViewHolder {
+            val binding = ItemTransformBinding.inflate(LayoutInflater.from(parent.context))
+            return LocalDicViewHolder(binding)
+        }
+
+        override fun onBindViewHolder(holder: LocalDicViewHolder, position: Int) {
+            holder.textView.text = getItem(position)
+        }
+    }
+
+    class LocalDicViewHolder(binding: ItemTransformBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        val textView: TextView = binding.textViewItemTransform
     }
 }
