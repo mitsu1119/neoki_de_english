@@ -1,10 +1,15 @@
 package io.github.mitsu1119.neoki_de_english.ui.local_dictionary
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatEditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -35,9 +40,49 @@ class LocalDictionaryFragment: Fragment() {
         internalDir = requireContext().filesDir
         transformViewModel.loadDicNames(internalDir)
 
+        // 辞書の新規作成
         val btnAdd = binding.btnAdd
         btnAdd.setOnClickListener {
-            DicSet.create(internalDir, "test")
+            val dialogLayout = layoutInflater.inflate(R.layout.dialog_main, null)
+            val editText = dialogLayout.findViewById<AppCompatEditText>(R.id.textDialog)
+            val nameInputDialog = AlertDialog.Builder(context)
+            editText.hint = "１文字以上入力してください"
+            nameInputDialog.setTitle("辞書の新規作成")
+            nameInputDialog.setMessage("辞書名を入力してください")
+            nameInputDialog.setView(dialogLayout)
+
+            // OKボタン
+            nameInputDialog.setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+                DicSet.create(internalDir, editText.text.toString())
+            }
+
+            // キャンセルボタンでキャンセル
+            nameInputDialog.setNegativeButton("キャンセル") { dialog, _ ->
+                dialog.dismiss()
+            }
+
+            val dialog = nameInputDialog.create()
+            dialog.show()
+
+            // 名前入力欄のボタンの設定
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = false
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.GRAY)
+            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK)
+            editText.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+                override fun afterTextChanged(s: Editable?) {
+                    // 入力されていなければOKはださない
+                    if (s.isNullOrEmpty() || s.length == 0) {
+                        dialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = false
+                        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.GRAY)
+                    } else {
+                        dialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = true
+                        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK)
+                    }
+                }
+            })
         }
 
         return root
