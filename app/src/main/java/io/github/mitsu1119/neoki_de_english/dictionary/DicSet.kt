@@ -17,6 +17,7 @@ class DicSet {
             // 新規作成
             val new = internalDir.absolutePath + "/" + name
             Files.createDirectory(Paths.get(new))
+            Files.createFile(Paths.get(new + "/words.txt"))
             return true
         }
     }
