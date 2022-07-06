@@ -58,5 +58,14 @@
         android:name="io.github.mitsu1119.neoki_de_english.ui.dictionary.DictionaryFragment"
         android:label="Dictionary"
         tools:layout="@layout/fragment_dictionary">
+        <action
+            android:id="@+id/action_to_local_dictionary"
+            app:destination="@id/nav_local_dictionary"/>
     </fragment>
+
+    <fragment
+        android:id="@+id/nav_local_dictionary"
+        android:name="io.github.mitsu1119.neoki_de_english.ui.local_dictionary.LocalDictionaryFragment"
+        android:label="LocalDictionary"
+        tools:layout="@layout/fragment_local_dictionary"/>
 </navigation>
