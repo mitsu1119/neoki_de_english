@@ -77,5 +77,9 @@
         android:id="@+id/nav_words"
         android:name="io.github.mitsu1119.neoki_de_english.ui.words.WordsFragment"
         android:label="Words"
-        tools:layout="@layout/fragment_words"/>
+        tools:layout="@layout/fragment_words">
+        <argument
+            android:name="dicName"
+            app:argType="string"/>
+    </fragment>
 </navigation>

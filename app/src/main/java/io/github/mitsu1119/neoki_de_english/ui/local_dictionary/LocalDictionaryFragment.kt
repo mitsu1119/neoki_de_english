@@ -55,7 +55,8 @@ class LocalDictionaryFragment: Fragment() {
 
         adapter.itemClickListener = object: LocalDicAdapter.OnItemClickListener {
             override fun onItemClick(holder: LocalDicViewHolder): Boolean {
-                findNavController().navigate(R.id.action_to_words)
+                val action = LocalDictionaryFragmentDirections.actionToWords(holder.textView.text.toString())
+                findNavController().navigate(action)
                 return true
             }
         }
