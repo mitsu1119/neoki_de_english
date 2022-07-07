@@ -64,6 +64,9 @@
         <action
             android:id="@+id/action_to_upload"
             app:destination="@id/nav_upload"/>
+        <action
+            android:id="@+id/action_to_download"
+            app:destination="@id/nav_download"/>
     </fragment>
 
     <fragment
@@ -91,4 +94,10 @@
         android:name="io.github.mitsu1119.neoki_de_english.ui.upload.UploadFragment"
         android:label="Upload"
         tools:layout="@layout/fragment_upload"/>
+
+    <fragment
+        android:id="@+id/nav_download"
+        android:name="io.github.mitsu1119.neoki_de_english.ui.download.DownloadFragment"
+        android:label="Download"
+        tools:layout="@layout/fragment_download"/>
 </navigation>

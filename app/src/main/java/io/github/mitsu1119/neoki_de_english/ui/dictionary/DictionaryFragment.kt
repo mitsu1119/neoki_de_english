@@ -41,6 +41,7 @@ class DictionaryFragment : Fragment() {
 
         val btnDownload = binding.btnDownload
         btnDownload.setOnClickListener { view ->
+            findNavController().navigate(R.id.action_to_download)
         }
 
         return root
