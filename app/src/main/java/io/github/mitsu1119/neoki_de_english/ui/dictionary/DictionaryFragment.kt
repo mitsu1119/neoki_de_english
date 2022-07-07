@@ -36,6 +36,7 @@ class DictionaryFragment : Fragment() {
 
         val btnUpload = binding.btnUpload
         btnUpload.setOnClickListener { view ->
+            findNavController().navigate(R.id.action_to_upload)
         }
 
         val btnDownload = binding.btnDownload
