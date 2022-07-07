@@ -1,5 +1,6 @@
 package io.github.mitsu1119.neoki_de_english.dictionary
 
+import android.content.Context
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
@@ -21,6 +22,7 @@ class DicSet {
             val new = internalDir.absolutePath + "/" + name
             Files.createDirectory(Paths.get(new))
             Files.createFile(Paths.get(new + "/words.txt"))
+
             return true
         }
 

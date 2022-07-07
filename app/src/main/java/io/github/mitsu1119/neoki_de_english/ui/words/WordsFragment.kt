@@ -4,8 +4,11 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.graphics.Color
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
+import android.speech.tts.UtteranceProgressListener
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,15 +27,19 @@ import io.github.mitsu1119.neoki_de_english.databinding.FragmentWordsBinding
 import io.github.mitsu1119.neoki_de_english.databinding.ItemTransformBinding
 import io.github.mitsu1119.neoki_de_english.dictionary.DicSet
 import org.intellij.lang.annotations.JdkConstants
+import org.w3c.dom.Text
 import java.io.File
+import java.util.*
 
-class WordsFragment: Fragment() {
+class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
     private var _binding: FragmentWordsBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var internalDir: File
 
     private val args: WordsFragmentArgs by navArgs()
+
+    private var tts: TextToSpeech? = null
 
     @SuppressLint("UnspecifiedImmutableFlag")
     override fun onCreateView(
@@ -49,6 +56,8 @@ class WordsFragment: Fragment() {
         val dicName = args.dicName
         transformViewModel.setDicName(dicName)
         transformViewModel.loadWords(internalDir, dicName)
+
+        tts = TextToSpeech(requireContext(), this)
 
         val recyclerView = binding.recyclerView
         val adapter = WordsAdapter()
@@ -80,12 +89,8 @@ class WordsFragment: Fragment() {
 
             // OKボタン
             nameInputDialog.setPositiveButton("OK") { dialog, _ ->
-                DicSet.recording(
-                    internalDir,
-                    dicName,
-                    editEnglish.text.toString(),
-                    editJapanese.text.toString()
-                )
+                speak(editEnglish.text.toString(), internalDir.absolutePath + "/" + dicName + "/" + editEnglish.text.toString() + ".wav")
+                DicSet.recording(internalDir, dicName, editEnglish.text.toString(), editJapanese.text.toString())
                 transformViewModel.setWord(editEnglish.text.toString())
                 dialog.dismiss()
             }
@@ -127,9 +132,25 @@ class WordsFragment: Fragment() {
         return root
     }
 
+    override fun onInit(status: Int) {
+        if(status != TextToSpeech.SUCCESS) {
+            Log.e("tts", "初期化失敗")
+        } else {
+            Log.e("tts", "初期化成功")
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun speak(text: String, out: String) {
+        val of = File(out)
+        if(!of.exists()) {
+            tts?.setLanguage(Locale.ENGLISH)
+            tts?.synthesizeToFile(text, null, of, "WordsID")
+        }
     }
 
     class WordsAdapter :
