@@ -1,6 +1,8 @@
 package io.github.mitsu1119.neoki_de_english.dictionary
 
+import java.io.BufferedReader
 import java.io.File
+import java.io.FileReader
 import java.io.FileWriter
 import java.nio.file.Files
 import java.nio.file.Paths
@@ -28,6 +30,20 @@ class DicSet {
             fw.write(english + "\n")
             fw.write(japanese + "\n")
             fw.close()
+        }
+
+        fun loadOnlyEnglish(internalDir: File, dicName: String): ArrayList<String> {
+            val f = File(internalDir.absolutePath + "/" + dicName + "/words.txt")
+            var buf = 0
+            var ret = arrayListOf<String>()
+            BufferedReader(FileReader(f)).use { br ->
+                var line: String?
+                while(br.readLine().also { line = it } != null) {
+                    if(buf == 0) ret.add(line!!)
+                    buf = buf xor 1
+                }
+            }
+            return ret
         }
     }
 }

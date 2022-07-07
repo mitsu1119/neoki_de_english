@@ -9,16 +9,20 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 import io.github.mitsu1119.neoki_de_english.R
-import io.github.mitsu1119.neoki_de_english.databinding.FragmentLocalDictionaryBinding
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentWordsBinding
+import io.github.mitsu1119.neoki_de_english.databinding.ItemTransformBinding
 import io.github.mitsu1119.neoki_de_english.dictionary.DicSet
-import io.github.mitsu1119.neoki_de_english.ui.local_dictionary.LocalDictionaryViewModel
 import org.intellij.lang.annotations.JdkConstants
 import java.io.File
 
@@ -44,6 +48,22 @@ class WordsFragment: Fragment() {
 
         val dicName = args.dicName
         transformViewModel.setDicName(dicName)
+        transformViewModel.loadWords(internalDir, dicName)
+
+        val recyclerView = binding.recyclerView
+        val adapter = WordsAdapter()
+        recyclerView.adapter = adapter
+        transformViewModel.words.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
+
+        adapter.itemClickListener =
+            object : WordsAdapter.OnItemClickListener {
+                override fun onItemClick(holder: WordsViewHolder): Boolean {
+                    return true
+                }
+            }
+
 
         // 単語の新規作成
         val btnAdd = binding.btnAdd
@@ -60,7 +80,13 @@ class WordsFragment: Fragment() {
 
             // OKボタン
             nameInputDialog.setPositiveButton("OK") { dialog, _ ->
-                DicSet.recording(internalDir, dicName, editEnglish.text.toString(), editJapanese.text.toString())
+                DicSet.recording(
+                    internalDir,
+                    dicName,
+                    editEnglish.text.toString(),
+                    editJapanese.text.toString()
+                )
+                transformViewModel.setWord(editEnglish.text.toString())
                 dialog.dismiss()
             }
 
@@ -104,5 +130,41 @@ class WordsFragment: Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    class WordsAdapter :
+        ListAdapter<String, WordsViewHolder>(object : DiffUtil.ItemCallback<String>() {
+
+            override fun areItemsTheSame(oldItem: String, newItem: String): Boolean =
+                oldItem == newItem
+
+            override fun areContentsTheSame(oldItem: String, newItem: String): Boolean =
+                oldItem == newItem
+        }) {
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordsViewHolder {
+            val binding = ItemTransformBinding.inflate(LayoutInflater.from(parent.context))
+            return WordsViewHolder(binding)
+        }
+
+        override fun onBindViewHolder(holder: WordsViewHolder, position: Int) {
+            val word = getItem(position)
+            holder.textView.text = word
+            holder.itemView.setOnClickListener {
+                itemClickListener?.onItemClick(holder)
+            }
+        }
+
+        var itemClickListener: OnItemClickListener? = null
+
+        interface OnItemClickListener {
+            fun onItemClick(holder: WordsViewHolder): Boolean
+        }
+    }
+
+    class WordsViewHolder(binding: ItemTransformBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        val textView: TextView = binding.textViewItemTransform
     }
 }
