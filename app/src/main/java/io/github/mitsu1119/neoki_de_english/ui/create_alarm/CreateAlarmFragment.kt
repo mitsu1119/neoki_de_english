@@ -7,14 +7,14 @@ import android.app.TimePickerDialog
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.TimePicker
-import android.widget.Toast
+import android.widget.*
 import androidx.core.content.getSystemService
 import androidx.fragment.app.DialogFragment
 import io.github.mitsu1119.neoki_de_english.R
+import io.github.mitsu1119.neoki_de_english.dictionary.DicSet
+import java.io.File
 import kotlin.ClassCastException
+import kotlin.math.sign
 
 class CreateAlarmFragment: DialogFragment() {
     interface NoticeDialogLister {
@@ -38,6 +38,7 @@ class CreateAlarmFragment: DialogFragment() {
         val inflater = requireActivity().layoutInflater
         val signinView = inflater.inflate(R.layout.fragment_create_alarm, null)
 
+        // 曜日
         val cbs = arrayOf(signinView.findViewById<CheckBox>(R.id.cbMon),
             signinView.findViewById<CheckBox>(R.id.cbTue),
             signinView.findViewById<CheckBox>(R.id.cbWed),
@@ -46,6 +47,19 @@ class CreateAlarmFragment: DialogFragment() {
             signinView.findViewById<CheckBox>(R.id.cbSat),
             signinView.findViewById<CheckBox>(R.id.cbSun),
         )
+
+        // 辞書
+        val internalDir = requireContext().filesDir
+        val dicDir = File(internalDir.absolutePath + "/dics")
+        val dicNames = mutableListOf<String>()
+        for(name in DicSet.getDicNames(dicDir)) {
+            if(!dicNames.contains(name)) dicNames.add(name)
+        }
+        val spnDic = signinView.findViewById<Spinner>(R.id.spnDic)
+        val spinnerItems = dicNames.stream().toArray() { arrayOfNulls<String>(it) }
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinnerItems)
+        spnDic.adapter = adapter
+
 
         builder.setView(signinView)
             .setTitle("アラーム作成")
