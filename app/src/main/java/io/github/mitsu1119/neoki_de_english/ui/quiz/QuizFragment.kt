@@ -59,14 +59,18 @@ class QuizFragment: Fragment() {
         tvEng.text = transformViewModel.q.value?.first
 
         // 選択肢
+        val ans = java.util.Random().nextInt(3)
         val btnChoice1 = binding.btnChoice1
-        btnChoice1.text = ds[java.util.Random().nextInt(ds.size)].second
+        if(ans == 0) btnChoice1.text = transformViewModel.q.value?.second
+        else btnChoice1.text = ds[java.util.Random().nextInt(ds.size)].second
 
         val btnChoice2 = binding.btnChoice2
-        btnChoice2.text = ds[java.util.Random().nextInt(ds.size)].second
+        if(ans == 1) btnChoice2.text = transformViewModel.q.value?.second
+        else btnChoice2.text = ds[java.util.Random().nextInt(ds.size)].second
 
         val btnChoice3 = binding.btnChoice3
-        btnChoice3.text = ds[java.util.Random().nextInt(ds.size)].second
+        if(ans == 2) btnChoice3.text = transformViewModel.q.value?.second
+        else btnChoice3.text = ds[java.util.Random().nextInt(ds.size)].second
 
         return root
     }
