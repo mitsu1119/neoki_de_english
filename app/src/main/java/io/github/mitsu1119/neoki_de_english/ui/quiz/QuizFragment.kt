@@ -37,6 +37,7 @@ class QuizFragment: Fragment() {
 
         val dicName = args.dicName
         val numberOfQuiz = args.numberOfQuiz
+        var cw = args.cw
         Log.v("yey", "Quiz: $dicName, $numberOfQuiz")
 
         val handler = Handler(Looper.getMainLooper())
@@ -67,21 +68,27 @@ class QuizFragment: Fragment() {
         if(ans == 0) btnChoice1.text = transformViewModel.q.value?.second
         else btnChoice1.text = ds[java.util.Random().nextInt(ds.size)].second
         btnChoice1.setOnClickListener {
-            goNext(dicName, numberOfQuiz)
+            if(btnChoice1.text.equals(transformViewModel.q.value?.second)) cw = cw + "o"
+            else cw = cw + "x"
+            goNext(dicName, numberOfQuiz, cw)
         }
 
         val btnChoice2 = binding.btnChoice2
         if(ans == 1) btnChoice2.text = transformViewModel.q.value?.second
         else btnChoice2.text = ds[java.util.Random().nextInt(ds.size)].second
         btnChoice2.setOnClickListener {
-            goNext(dicName, numberOfQuiz)
+            if(btnChoice2.text.equals(transformViewModel.q.value?.second)) cw = cw + "o"
+            else cw = cw + "x"
+            goNext(dicName, numberOfQuiz, cw)
         }
 
         val btnChoice3 = binding.btnChoice3
         if(ans == 2) btnChoice3.text = transformViewModel.q.value?.second
         else btnChoice3.text = ds[java.util.Random().nextInt(ds.size)].second
         btnChoice3.setOnClickListener {
-            goNext(dicName, numberOfQuiz)
+            if(btnChoice3.text.equals(transformViewModel.q.value?.second)) cw = cw + "o"
+            else cw = cw + "x"
+            goNext(dicName, numberOfQuiz, cw)
         }
 
         return root
@@ -92,12 +99,12 @@ class QuizFragment: Fragment() {
         _binding = null
     }
 
-    private fun goNext(dicName: String, numberOfQuiz: Int) {
+    private fun goNext(dicName: String, numberOfQuiz: Int, cw: String) {
         if (numberOfQuiz == 4) {
-            val action = QuizFragmentDirections.actionToResult()
+            val action = QuizFragmentDirections.actionToResult(cw)
             findNavController().navigate(action)
         } else {
-            val action = QuizFragmentDirections.actionToQuiz(dicName, numberOfQuiz + 1)
+            val action = QuizFragmentDirections.actionToQuiz(dicName, numberOfQuiz + 1, cw)
             findNavController().navigate(action)
         }
 

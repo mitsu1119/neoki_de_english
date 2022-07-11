@@ -112,6 +112,9 @@
         <argument
             android:name="numberOfQuiz"
             app:argType="integer"/>
+        <argument
+            android:name="cw"
+            app:argType="string"/>
         <action
             android:id="@+id/action_to_quiz"
             app:destination="@id/nav_quiz"/>
@@ -124,5 +127,9 @@
         android:id="@+id/nav_result"
         android:name="io.github.mitsu1119.neoki_de_english.ui.result.ResultFragment"
         android:label="Result"
-        tools:layout="@layout/fragment_result"/>
+        tools:layout="@layout/fragment_result">
+        <argument
+            android:name="cw"
+            app:argType="string"/>
+    </fragment>
 </navigation>

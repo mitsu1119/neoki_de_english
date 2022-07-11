@@ -44,6 +44,7 @@ class AlarmReceiver: BroadcastReceiver() {
                 Bundle().apply {
                     putString("dicName", dic)
                     putInt("numberOfQuiz", 0)
+                    putString("cw", "")
                 }
             )
             .createPendingIntent()
