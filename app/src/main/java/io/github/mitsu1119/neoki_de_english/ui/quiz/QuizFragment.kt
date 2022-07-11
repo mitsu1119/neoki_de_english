@@ -60,9 +60,19 @@ class QuizFragment: Fragment() {
         // 問題生成
         val ds = DicSet.load(internalDir, dicName)
         val word = ds[java.util.Random().nextInt(ds.size)]
-        transformViewModel.setQuestion(word.first, word.second)
-        engs = engs + word.first + "&"
-        corrects = corrects + word.second + "&"
+        var eng = word.first
+        var jp = word.second
+
+        if(numberOfQuiz == 0) {
+            eng = engs
+            engs = ""
+            jp = answers
+            answers = ""
+        }
+
+        transformViewModel.setQuestion(eng, jp)
+        engs = engs + eng + "&"
+        corrects = corrects + jp + "&"
 
         val tvEng = binding.tvEng
         tvEng.text = transformViewModel.q.value?.first

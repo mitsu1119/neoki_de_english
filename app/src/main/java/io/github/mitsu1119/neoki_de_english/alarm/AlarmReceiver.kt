@@ -68,8 +68,8 @@ class AlarmReceiver: BroadcastReceiver() {
                     putString("dicName", dic)
                     putInt("numberOfQuiz", 0)
                     putString("cw", "")
-                    putString("engs", "")
-                    putString("answers", "")
+                    putString("engs", eng)
+                    putString("answers", jp)
                     putString("corrects", "")
                 }
             )
