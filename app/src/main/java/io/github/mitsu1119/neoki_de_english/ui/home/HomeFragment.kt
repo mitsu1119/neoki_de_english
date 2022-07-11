@@ -107,9 +107,10 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         return root
     }
 
-    override fun onDialogPositiveClick(dialog: DialogFragment, hour:Int, minute:Int, dayOfWeeks: Array<Boolean>) {
+    override fun onDialogPositiveClick(dialog: DialogFragment, hour:Int, minute:Int, dayOfWeeks: Array<Boolean>, dic: String) {
         Log.e("yey", "$hour:$minute")
         Log.e("yey", dayOfWeeks.contentToString())
+        Log.e("yey", dic)
     }
 
     override fun onDestroyView() {

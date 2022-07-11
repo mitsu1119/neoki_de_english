@@ -18,7 +18,7 @@ import kotlin.math.sign
 
 class CreateAlarmFragment: DialogFragment() {
     interface NoticeDialogLister {
-        fun onDialogPositiveClick(dialog:DialogFragment, hour:Int, minute:Int, dayOfWeeks: Array<Boolean>)
+        fun onDialogPositiveClick(dialog:DialogFragment, hour:Int, minute:Int, dayOfWeeks: Array<Boolean>, dic: String)
     }
 
     var mLister:NoticeDialogLister? = null
@@ -60,7 +60,6 @@ class CreateAlarmFragment: DialogFragment() {
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinnerItems)
         spnDic.adapter = adapter
 
-
         builder.setView(signinView)
             .setTitle("アラーム作成")
             .setPositiveButton("done") { dialog, id ->
@@ -74,7 +73,7 @@ class CreateAlarmFragment: DialogFragment() {
                     cbs[5].isChecked,
                     cbs[6].isChecked,
                 )
-                mLister?.onDialogPositiveClick(this, tp.hour, tp.minute, dayOfWeeks)
+                mLister?.onDialogPositiveClick(this, tp.hour, tp.minute, dayOfWeeks, spnDic.selectedItem.toString())
             }
             .setNegativeButton("cancel") { dialog, id ->
                 dismiss()
