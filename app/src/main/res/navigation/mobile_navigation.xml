@@ -149,5 +149,8 @@
         <argument
             android:name="corrects"
             app:argType="string"/>
+        <action
+            android:id="@+id/action_to_title"
+            app:destination="@id/nav_title"/>
     </fragment>
 </navigation>

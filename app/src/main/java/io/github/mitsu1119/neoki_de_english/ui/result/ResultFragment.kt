@@ -8,11 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentDownloadBinding
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentResultBinding
 import io.github.mitsu1119.neoki_de_english.ui.download.DownloadViewModel
 import io.github.mitsu1119.neoki_de_english.ui.quiz.QuizFragmentArgs
+import io.github.mitsu1119.neoki_de_english.ui.quiz.QuizFragmentDirections
 
 class ResultFragment: Fragment() {
     private var _binding: FragmentResultBinding? = null
@@ -38,6 +40,13 @@ class ResultFragment: Fragment() {
         Log.e("yey", engs)
         Log.e("yey", answers)
         Log.e("yey", corrects)
+
+        // タイトルへ戻るボタン
+        val btnToTitle = binding.btnToTitle
+        btnToTitle.setOnClickListener {
+            val action = ResultFragmentDirections.actionToTitle()
+            findNavController().navigate(action)
+        }
 
         return root
     }
