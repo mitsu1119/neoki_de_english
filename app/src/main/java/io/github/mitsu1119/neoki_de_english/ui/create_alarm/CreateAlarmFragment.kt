@@ -1,18 +1,23 @@
 package io.github.mitsu1119.neoki_de_english.ui.create_alarm
 
+import android.app.AlarmManager
 import android.app.AlertDialog
 import android.app.Dialog
+import android.app.TimePickerDialog
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
+import android.widget.TimePicker
+import android.widget.Toast
+import androidx.core.content.getSystemService
 import androidx.fragment.app.DialogFragment
 import io.github.mitsu1119.neoki_de_english.R
 import kotlin.ClassCastException
 
 class CreateAlarmFragment: DialogFragment() {
     interface NoticeDialogLister {
-        fun onDialogPositiveClick(dialog:DialogFragment, st1:String, st2:String)
+        fun onDialogPositiveClick(dialog:DialogFragment, hour:Int, minute:Int)
     }
 
     var mLister:NoticeDialogLister? = null
@@ -35,10 +40,8 @@ class CreateAlarmFragment: DialogFragment() {
         builder.setView(signinView)
             .setTitle("アラーム作成")
             .setPositiveButton("done") { dialog, id ->
-                val st1 = signinView.findViewById<EditText>(R.id.st1).text
-                val st2 = signinView.findViewById<EditText>(R.id.st2).text
-                mLister?.onDialogPositiveClick(this, st1.toString(), st2.toString())
-                dismiss()
+                val tp = signinView.findViewById<TimePicker>(R.id.tp)
+                mLister?.onDialogPositiveClick(this, tp.hour, tp.minute)
             }
             .setNegativeButton("cancel") { dialog, id ->
                 dismiss()
