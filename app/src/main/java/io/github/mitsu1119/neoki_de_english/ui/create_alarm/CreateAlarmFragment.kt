@@ -7,6 +7,7 @@ import android.app.TimePickerDialog
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TimePicker
 import android.widget.Toast
@@ -17,7 +18,7 @@ import kotlin.ClassCastException
 
 class CreateAlarmFragment: DialogFragment() {
     interface NoticeDialogLister {
-        fun onDialogPositiveClick(dialog:DialogFragment, hour:Int, minute:Int)
+        fun onDialogPositiveClick(dialog:DialogFragment, hour:Int, minute:Int, dayOfWeeks: Array<Boolean>)
     }
 
     var mLister:NoticeDialogLister? = null
@@ -37,11 +38,29 @@ class CreateAlarmFragment: DialogFragment() {
         val inflater = requireActivity().layoutInflater
         val signinView = inflater.inflate(R.layout.fragment_create_alarm, null)
 
+        val cbs = arrayOf(signinView.findViewById<CheckBox>(R.id.cbMon),
+            signinView.findViewById<CheckBox>(R.id.cbTue),
+            signinView.findViewById<CheckBox>(R.id.cbWed),
+            signinView.findViewById<CheckBox>(R.id.cbThu),
+            signinView.findViewById<CheckBox>(R.id.cbFri),
+            signinView.findViewById<CheckBox>(R.id.cbSat),
+            signinView.findViewById<CheckBox>(R.id.cbSun),
+        )
+
         builder.setView(signinView)
             .setTitle("アラーム作成")
             .setPositiveButton("done") { dialog, id ->
                 val tp = signinView.findViewById<TimePicker>(R.id.tp)
-                mLister?.onDialogPositiveClick(this, tp.hour, tp.minute)
+                val dayOfWeeks = arrayOf(
+                    cbs[0].isChecked,
+                    cbs[1].isChecked,
+                    cbs[2].isChecked,
+                    cbs[3].isChecked,
+                    cbs[4].isChecked,
+                    cbs[5].isChecked,
+                    cbs[6].isChecked,
+                )
+                mLister?.onDialogPositiveClick(this, tp.hour, tp.minute, dayOfWeeks)
             }
             .setNegativeButton("cancel") { dialog, id ->
                 dismiss()
