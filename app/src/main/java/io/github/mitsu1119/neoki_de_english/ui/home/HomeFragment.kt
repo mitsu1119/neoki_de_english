@@ -45,13 +45,15 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private lateinit var transformViewModel: HomeViewModel
+
     @SuppressLint("UnspecifiedImmutableFlag")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val transformViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        transformViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -66,51 +68,39 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         btnAdd.setOnClickListener { view ->
             val dialog = CreateAlarmFragment()
             dialog.show(childFragmentManager, "CreateAlarm")
-
-            //　アラーム追加
-            /*
-             transformViewModel.addAlarm()
-
-            val timePickerDialog = TimePickerDialog(context,
-                { view, hourOfDay, minute ->
-                    Toast.makeText(
-                        context,
-                        "$hourOfDay:$minute",
-                        Toast.LENGTH_SHORT
-                    ).show()
-
-                    val alarm: AlarmManager = context?.getSystemService(ALARM_SERVICE) as AlarmManager
-                    val pending = Intent(context, AlarmReceiver::class.java).let { intent ->
-                        intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND)
-                        getBroadcast(context, 0, intent, 0)
-                    }
-
-                    // アラームを入力された時刻にセット
-                    val cl = Calendar.getInstance()
-                    cl.timeInMillis  = System.currentTimeMillis()
-                    cl.set(Calendar.HOUR_OF_DAY, hourOfDay)
-                    cl.set(Calendar.MINUTE, minute)
-                    cl.set(Calendar.SECOND, 0)
-                    cl.set(Calendar.MILLISECOND, 0)
-                    // alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, cl.timeInMillis, pending)
-
-                    // アラームを5秒後にセット
-                    alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 5000, pending)
-
-                    Toast.makeText(context, "Set Alarm ", Toast.LENGTH_SHORT).show()
-                }, 0, 0, true
-            )
-            timePickerDialog.show()
-             */
         }
 
         return root
     }
 
     override fun onDialogPositiveClick(dialog: DialogFragment, hour:Int, minute:Int, dayOfWeeks: Array<Boolean>, dic: String) {
-        Log.e("yey", "$hour:$minute")
-        Log.e("yey", dayOfWeeks.contentToString())
-        Log.e("yey", dic)
+        Log.v("yey", "$hour:$minute")
+        Log.v("yey", dayOfWeeks.contentToString())
+        Log.v("yey", dic)
+
+        // アラーム追加
+
+        val alarm: AlarmManager = context?.getSystemService(ALARM_SERVICE) as AlarmManager
+        val pending = Intent(context, AlarmReceiver::class.java).let { intent ->
+            intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND)
+            getBroadcast(context, 0, intent, 0)
+        }
+
+        val cl = Calendar.getInstance()
+        cl.timeInMillis  = System.currentTimeMillis()
+        cl.set(Calendar.HOUR_OF_DAY, hour)
+        cl.set(Calendar.MINUTE, minute)
+        cl.set(Calendar.SECOND, 0)
+        cl.set(Calendar.MILLISECOND, 0)
+
+        // アラームを入力された時刻にセット
+        // alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, cl.timeInMillis, pending)
+
+        // アラームを5秒後にセット
+        alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 5000, pending)
+        Log.v("yey", "Set Alarm")
+
+        transformViewModel.addAlarm()
     }
 
     override fun onDestroyView() {
