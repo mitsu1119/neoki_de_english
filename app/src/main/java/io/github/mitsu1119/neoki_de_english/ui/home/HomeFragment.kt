@@ -89,6 +89,7 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         val alarm: AlarmManager = context?.getSystemService(ALARM_SERVICE) as AlarmManager
         val pending = Intent(context, AlarmReceiver::class.java).let { intent ->
             intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND)
+            intent.putExtra("dictionary", dic)
             getBroadcast(context, 0, intent, 0)
         }
 

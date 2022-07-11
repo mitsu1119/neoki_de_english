@@ -5,11 +5,13 @@ import android.app.NotificationManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.navigation.NavDeepLinkBuilder
 import io.github.mitsu1119.neoki_de_english.R
+import io.github.mitsu1119.neoki_de_english.ui.quiz.QuizFragmentArgs
 
 
 class AlarmReceiver: BroadcastReceiver() {
@@ -17,6 +19,9 @@ class AlarmReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
         Toast.makeText(context, "Received ", Toast.LENGTH_LONG).show()
 
+        val dic = intent?.getStringExtra("dictionary")
+
+        // 通知作成
         val CHANNEL_ID = "channel_id"
         val channel_name = "channel_name"
         val channel_description = "channel_description "
@@ -35,12 +40,15 @@ class AlarmReceiver: BroadcastReceiver() {
         val pendingIntent = NavDeepLinkBuilder(context)
             .setGraph(R.navigation.mobile_navigation)
             .setDestination(R.id.nav_quiz)
+            .setArguments(
+                Bundle().apply { putString("dicName", dic) }
+            )
             .createPendingIntent()
 
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_launcher_background)
             .setContentTitle("通知")
-            .setContentText("alarm")
+            .setContentText("alarm, dic: $dic")
             .setContentIntent(pendingIntent)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
