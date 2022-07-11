@@ -115,5 +115,14 @@
         <action
             android:id="@+id/action_to_quiz"
             app:destination="@id/nav_quiz"/>
+        <action
+            android:id="@+id/action_to_result"
+            app:destination="@id/nav_result"/>
     </fragment>
+
+    <fragment
+        android:id="@+id/nav_result"
+        android:name="io.github.mitsu1119.neoki_de_english.ui.result.ResultFragment"
+        android:label="Result"
+        tools:layout="@layout/fragment_result"/>
 </navigation>

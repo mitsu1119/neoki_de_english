@@ -67,19 +67,22 @@ class QuizFragment: Fragment() {
         if(ans == 0) btnChoice1.text = transformViewModel.q.value?.second
         else btnChoice1.text = ds[java.util.Random().nextInt(ds.size)].second
         btnChoice1.setOnClickListener {
-            if (numberOfQuiz != 4) {
-                val action = QuizFragmentDirections.actionToQuiz(dicName, numberOfQuiz + 1)
-                findNavController().navigate(action)
-            }
+            goNext(dicName, numberOfQuiz)
         }
 
         val btnChoice2 = binding.btnChoice2
         if(ans == 1) btnChoice2.text = transformViewModel.q.value?.second
         else btnChoice2.text = ds[java.util.Random().nextInt(ds.size)].second
+        btnChoice2.setOnClickListener {
+            goNext(dicName, numberOfQuiz)
+        }
 
         val btnChoice3 = binding.btnChoice3
         if(ans == 2) btnChoice3.text = transformViewModel.q.value?.second
         else btnChoice3.text = ds[java.util.Random().nextInt(ds.size)].second
+        btnChoice3.setOnClickListener {
+            goNext(dicName, numberOfQuiz)
+        }
 
         return root
     }
@@ -89,4 +92,14 @@ class QuizFragment: Fragment() {
         _binding = null
     }
 
+    private fun goNext(dicName: String, numberOfQuiz: Int) {
+        if (numberOfQuiz == 4) {
+            val action = QuizFragmentDirections.actionToResult()
+            findNavController().navigate(action)
+        } else {
+            val action = QuizFragmentDirections.actionToQuiz(dicName, numberOfQuiz + 1)
+            findNavController().navigate(action)
+        }
+
+    }
 }
