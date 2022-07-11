@@ -25,9 +25,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import io.github.mitsu1119.neoki_de_english.R
 import io.github.mitsu1119.neoki_de_english.alarm.AlarmReceiver
+import io.github.mitsu1119.neoki_de_english.alarm.AlarmSet
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentHomeBinding
 import io.github.mitsu1119.neoki_de_english.databinding.ItemTransformBinding
 import io.github.mitsu1119.neoki_de_english.ui.create_alarm.CreateAlarmFragment
+import java.io.File
 import java.util.*
 
 
@@ -45,6 +47,7 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private lateinit var internalDir: File
     private lateinit var transformViewModel: HomeViewModel
 
     @SuppressLint("UnspecifiedImmutableFlag")
@@ -56,6 +59,8 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         transformViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        internalDir = requireContext().filesDir
 
         val recyclerView = binding.recyclerviewTransform
         val adapter = TransformAdapter()
@@ -95,6 +100,7 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
 
         // アラームを入力された時刻にセット
         // alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, cl.timeInMillis, pending)
+        AlarmSet.create(internalDir, hour, minute)
 
         // アラームを5秒後にセット
         alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 5000, pending)
