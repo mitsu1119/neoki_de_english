@@ -1,14 +1,28 @@
 package io.github.mitsu1119.neoki_de_english.ui.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.github.mitsu1119.neoki_de_english.alarm.AlarmSet
+import io.github.mitsu1119.neoki_de_english.dictionary.DicSet
+import java.io.File
 
 class HomeViewModel : ViewModel() {
 
     private val _alarms = MutableLiveData<MutableList<AlarmSet>>().apply {
         value = mutableListOf()
+    }
+    fun loadAlarms(internalDir: File) {
+        val alarmDir = internalDir.absolutePath + "/alarms/"
+        for(name in File(alarmDir).list()) {
+            val al = AlarmSet.load(alarmDir + name)
+            addAlarm(al)
+        }
+    }
+    fun addAlarm(alarm: AlarmSet) {
+        _alarms.value?.add(alarm)
+        applyAlarms()
     }
     fun addAlarm() {
         _alarms.value?.add(AlarmSet())

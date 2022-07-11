@@ -61,6 +61,7 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         val root: View = binding.root
 
         internalDir = requireContext().filesDir
+        transformViewModel.loadAlarms(internalDir)
 
         val recyclerView = binding.recyclerviewTransform
         val adapter = TransformAdapter()
