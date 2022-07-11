@@ -132,6 +132,8 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
 
         override fun onBindViewHolder(holder: TransformViewHolder, position: Int) {
             holder.textView.text = getItem(position)
+            holder.btnRemove.setOnClickListener {
+            }
         }
     }
 
@@ -139,5 +141,7 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         RecyclerView.ViewHolder(binding.root) {
 
         val textView: TextView = binding.textViewItemTransform
+        val btnRemove = binding.btnRemove
+
     }
 }

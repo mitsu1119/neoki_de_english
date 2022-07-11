@@ -5,13 +5,20 @@ import android.app.NotificationManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.media.AudioAttributes
+import android.media.MediaPlayer
+import android.media.SoundPool
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.navigation.NavDeepLinkBuilder
 import io.github.mitsu1119.neoki_de_english.R
+import io.github.mitsu1119.neoki_de_english.dictionary.DicSet
 import io.github.mitsu1119.neoki_de_english.ui.quiz.QuizFragmentArgs
+import java.io.File
 
 
 class AlarmReceiver: BroadcastReceiver() {
@@ -19,9 +26,23 @@ class AlarmReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
         Toast.makeText(context, "Received ", Toast.LENGTH_LONG).show()
 
-        val dic = intent?.getStringExtra("dictionary")
+        val dic = intent!!.getStringExtra("dictionary")!!
 
-        // TODO("アラーム音")
+        // 最初だけ AlarmReceiver 側で出題する問題を選択
+        val ds = DicSet.load(context.filesDir, dic)
+        val word = ds[java.util.Random().nextInt(ds.size)]
+        val eng = word.first
+        val jp = word.second
+        val audioFileName = context.filesDir.absolutePath + "/dics/" + dic + "/" + eng + ".wav"
+
+        // アラーム音作成
+        val mp = MediaPlayer().apply {
+            setDataSource(audioFileName)
+            isLooping = true
+        }
+        mp.prepare()
+        mp.start()
+
 
         // 通知作成
         val CHANNEL_ID = "channel_id"
@@ -57,7 +78,7 @@ class AlarmReceiver: BroadcastReceiver() {
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_launcher_background)
             .setContentTitle("通知")
-            .setContentText("alarm, dic: $dic")
+            .setContentText("alarm, dic: $dic, eng: $eng")
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
