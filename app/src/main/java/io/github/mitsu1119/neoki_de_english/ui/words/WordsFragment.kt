@@ -55,7 +55,7 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
 
         val dicName = args.dicName
         transformViewModel.setDicName(dicName)
-        transformViewModel.loadWords(internalDir, "/dics/" + dicName)
+        transformViewModel.loadWords(internalDir, dicName)
 
         tts = TextToSpeech(requireContext(), this)
 

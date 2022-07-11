@@ -35,13 +35,29 @@ class DicSet {
         }
 
         fun loadOnlyEnglish(internalDir: File, dicName: String): ArrayList<String> {
-            val f = File(internalDir.absolutePath + "/" + dicName + "/words.txt")
+            val f = File(internalDir.absolutePath + "/dics/" + dicName + "/words.txt")
             var buf = 0
             var ret = arrayListOf<String>()
             BufferedReader(FileReader(f)).use { br ->
                 var line: String?
                 while(br.readLine().also { line = it } != null) {
                     if(buf == 0) ret.add(line!!)
+                    buf = buf xor 1
+                }
+            }
+            return ret
+        }
+
+        fun load(internalDir: File, dicName: String): ArrayList<Pair<String, String>> {
+            val f = File(internalDir.absolutePath + "/dics/" + dicName + "/words.txt")
+            var buf = 0
+            var ret = arrayListOf<Pair<String, String>>()
+            BufferedReader(FileReader(f)).use { br ->
+                var line: String?
+                var eng = ""
+                while(br.readLine().also { line = it } != null) {
+                    if(buf == 0)  eng = line!!
+                    else ret.add(Pair(eng, line!!))
                     buf = buf xor 1
                 }
             }

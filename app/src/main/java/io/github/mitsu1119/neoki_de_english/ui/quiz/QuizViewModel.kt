@@ -16,6 +16,13 @@ class QuizViewModel: ViewModel() {
         _nowTime.value = hour.toString().padStart(2, '0') + ":" + minute.toString().padStart(2, '0')
     }
 
+    private var _q = MutableLiveData<Pair<String, String>>()
+    var q: LiveData<Pair<String, String>> = _q
+
+    fun setQuestion(eng: String, jp: String) {
+        _q.value = Pair(eng, jp)
+    }
+
     init {
         updateTime()
     }

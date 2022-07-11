@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentQuizBinding
+import io.github.mitsu1119.neoki_de_english.dictionary.DicSet
 import io.github.mitsu1119.neoki_de_english.ui.words.WordsFragmentArgs
 import kotlin.concurrent.timer
 
@@ -45,6 +46,18 @@ class QuizFragment: Fragment() {
         transformViewModel.nowTime.observe(viewLifecycleOwner) {
             tvTime.text = transformViewModel.nowTime.value
         }
+
+        val internalDir = requireContext().filesDir
+        val ds = DicSet.load(internalDir, dicName)
+        val word = ds[(0..(ds.size - 1)).random()]
+
+        transformViewModel.setQuestion(word.first, word.second)
+
+        val tvEng = binding.tvEng
+        tvEng.text = transformViewModel.q.value?.first
+
+        val tvJp = binding.tvJp
+        tvJp.text = transformViewModel.q.value?.second
 
         return root
     }
