@@ -31,7 +31,13 @@ class ResultFragment: Fragment() {
         val root: View = binding.root
 
         val cw = args.cw
+        val engs = args.engs
+        val answers = args.answers
+        val corrects = args.corrects
         Log.e("yey", cw)
+        Log.e("yey", engs)
+        Log.e("yey", answers)
+        Log.e("yey", corrects)
 
         return root
     }

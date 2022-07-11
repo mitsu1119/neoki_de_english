@@ -115,6 +115,15 @@
         <argument
             android:name="cw"
             app:argType="string"/>
+        <argument
+            android:name="engs"
+            app:argType="string"/>
+        <argument
+            android:name="answers"
+            app:argType="string"/>
+        <argument
+            android:name="corrects"
+            app:argType="string"/>
         <action
             android:id="@+id/action_to_quiz"
             app:destination="@id/nav_quiz"/>
@@ -130,6 +139,15 @@
         tools:layout="@layout/fragment_result">
         <argument
             android:name="cw"
+            app:argType="string"/>
+        <argument
+            android:name="engs"
+            app:argType="string"/>
+        <argument
+            android:name="answers"
+            app:argType="string"/>
+        <argument
+            android:name="corrects"
             app:argType="string"/>
     </fragment>
 </navigation>
