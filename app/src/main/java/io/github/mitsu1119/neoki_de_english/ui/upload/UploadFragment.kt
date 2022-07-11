@@ -32,7 +32,8 @@ class UploadFragment: Fragment() {
 
         internalDir = requireContext().filesDir
 
-        transformViewModel.loadDicNames(internalDir)
+        val dicDir = File(internalDir.absolutePath + "/dics")
+        transformViewModel.loadDicNames(dicDir)
 
         // 辞書選択
         val spinnerItems = transformViewModel.dicNames.value!!.stream().toArray { arrayOfNulls<String>(it) }

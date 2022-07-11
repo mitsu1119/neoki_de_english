@@ -55,7 +55,7 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
 
         val dicName = args.dicName
         transformViewModel.setDicName(dicName)
-        transformViewModel.loadWords(internalDir, dicName)
+        transformViewModel.loadWords(internalDir, "/dics/" + dicName)
 
         tts = TextToSpeech(requireContext(), this)
 
@@ -89,8 +89,8 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
 
             // OKボタン
             nameInputDialog.setPositiveButton("OK") { dialog, _ ->
-                speak(editEnglish.text.toString(), internalDir.absolutePath + "/" + dicName + "/" + editEnglish.text.toString() + ".wav")
-                DicSet.recording(internalDir, dicName, editEnglish.text.toString(), editJapanese.text.toString())
+                speak(editEnglish.text.toString(), internalDir.absolutePath + "/dics/" + dicName + "/" + editEnglish.text.toString() + ".wav")
+                DicSet.recording(internalDir, "/dics/" + dicName, editEnglish.text.toString(), editJapanese.text.toString())
                 transformViewModel.setWord(editEnglish.text.toString())
                 dialog.dismiss()
             }
