@@ -2,6 +2,8 @@ package io.github.mitsu1119.neoki_de_english.ui.quiz
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentQuizBinding
 import io.github.mitsu1119.neoki_de_english.ui.words.WordsFragmentArgs
+import kotlin.concurrent.timer
 
 class QuizFragment: Fragment() {
     private var _binding: FragmentQuizBinding? = null
@@ -30,6 +33,18 @@ class QuizFragment: Fragment() {
 
         val dicName = args.dicName
         Log.v("yey", "Quiz: $dicName")
+
+        val handler = Handler(Looper.getMainLooper())
+        timer("update", period = 1000) {
+            handler.post {
+                transformViewModel.updateTime()
+            }
+        }
+
+        val tvTime = binding.tvTime
+        transformViewModel.nowTime.observe(viewLifecycleOwner) {
+            tvTime.text = transformViewModel.nowTime.value
+        }
 
         return root
     }

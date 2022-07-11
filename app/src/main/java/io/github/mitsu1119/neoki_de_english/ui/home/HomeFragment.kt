@@ -104,7 +104,7 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         // alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, cl.timeInMillis, pending)
 
         // アラームを5秒後にセット
-        alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 5000, pending)
+        alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 1000, pending)
         Log.v("yey", "Set Alarm")
 
         // TODO("曜日でリピート")
