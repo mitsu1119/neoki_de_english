@@ -15,6 +15,7 @@ import io.github.mitsu1119.neoki_de_english.databinding.FragmentQuizBinding
 import io.github.mitsu1119.neoki_de_english.dictionary.DicSet
 import io.github.mitsu1119.neoki_de_english.ui.words.WordsFragmentArgs
 import kotlin.concurrent.timer
+import kotlin.random.Random
 
 class QuizFragment: Fragment() {
     private var _binding: FragmentQuizBinding? = null
@@ -47,17 +48,25 @@ class QuizFragment: Fragment() {
             tvTime.text = transformViewModel.nowTime.value
         }
 
+
         val internalDir = requireContext().filesDir
         val ds = DicSet.load(internalDir, dicName)
-        val word = ds[(0..(ds.size - 1)).random()]
+        val word = ds[java.util.Random().nextInt(ds.size)]
 
         transformViewModel.setQuestion(word.first, word.second)
 
         val tvEng = binding.tvEng
         tvEng.text = transformViewModel.q.value?.first
 
-        val tvJp = binding.tvJp
-        tvJp.text = transformViewModel.q.value?.second
+        // 選択肢
+        val btnChoice1 = binding.btnChoice1
+        btnChoice1.text = ds[java.util.Random().nextInt(ds.size)].second
+
+        val btnChoice2 = binding.btnChoice2
+        btnChoice2.text = ds[java.util.Random().nextInt(ds.size)].second
+
+        val btnChoice3 = binding.btnChoice3
+        btnChoice3.text = ds[java.util.Random().nextInt(ds.size)].second
 
         return root
     }

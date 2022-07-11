@@ -25,14 +25,39 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.584" />
 
-    <TextView
-        android:id="@+id/tvJp"
+    <Button
+        android:id="@+id/btnChoice1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Choice1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.676" />
+
+    <Button
+        android:id="@+id/btnChoice2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choice2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.685" />
+        app:layout_constraintVertical_bias="0.789" />
+
+    <Button
+        android:id="@+id/btnChoice3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choice3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.913" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
