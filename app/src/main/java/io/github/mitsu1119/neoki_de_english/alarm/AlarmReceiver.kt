@@ -41,7 +41,10 @@ class AlarmReceiver: BroadcastReceiver() {
             .setGraph(R.navigation.mobile_navigation)
             .setDestination(R.id.nav_quiz)
             .setArguments(
-                Bundle().apply { putString("dicName", dic) }
+                Bundle().apply {
+                    putString("dicName", dic)
+                    putInt("numberOfQuiz", 0)
+                }
             )
             .createPendingIntent()
 

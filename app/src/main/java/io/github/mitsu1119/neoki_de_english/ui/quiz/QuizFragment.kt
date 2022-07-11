@@ -10,9 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentQuizBinding
 import io.github.mitsu1119.neoki_de_english.dictionary.DicSet
+import io.github.mitsu1119.neoki_de_english.ui.local_dictionary.LocalDictionaryFragmentDirections
 import io.github.mitsu1119.neoki_de_english.ui.words.WordsFragmentArgs
 import kotlin.concurrent.timer
 import kotlin.random.Random
@@ -34,7 +36,8 @@ class QuizFragment: Fragment() {
         val root: View = binding.root
 
         val dicName = args.dicName
-        Log.v("yey", "Quiz: $dicName")
+        val numberOfQuiz = args.numberOfQuiz
+        Log.v("yey", "Quiz: $dicName, $numberOfQuiz")
 
         val handler = Handler(Looper.getMainLooper())
         timer("update", period = 1000) {
@@ -63,6 +66,12 @@ class QuizFragment: Fragment() {
         val btnChoice1 = binding.btnChoice1
         if(ans == 0) btnChoice1.text = transformViewModel.q.value?.second
         else btnChoice1.text = ds[java.util.Random().nextInt(ds.size)].second
+        btnChoice1.setOnClickListener {
+            if (numberOfQuiz != 4) {
+                val action = QuizFragmentDirections.actionToQuiz(dicName, numberOfQuiz + 1)
+                findNavController().navigate(action)
+            }
+        }
 
         val btnChoice2 = binding.btnChoice2
         if(ans == 1) btnChoice2.text = transformViewModel.q.value?.second

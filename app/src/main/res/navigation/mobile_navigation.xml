@@ -109,5 +109,11 @@
         <argument
             android:name="dicName"
             app:argType="string"/>
+        <argument
+            android:name="numberOfQuiz"
+            app:argType="integer"/>
+        <action
+            android:id="@+id/action_to_quiz"
+            app:destination="@id/nav_quiz"/>
     </fragment>
 </navigation>
