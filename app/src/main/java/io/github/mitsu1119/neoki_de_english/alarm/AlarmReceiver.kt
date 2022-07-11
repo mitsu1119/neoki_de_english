@@ -21,6 +21,8 @@ class AlarmReceiver: BroadcastReceiver() {
 
         val dic = intent?.getStringExtra("dictionary")
 
+        // TODO("アラーム音")
+
         // 通知作成
         val CHANNEL_ID = "channel_id"
         val channel_name = "channel_name"
