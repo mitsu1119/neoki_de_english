@@ -31,7 +31,7 @@ class AlarmSet {
     }
 
     companion object {
-        fun create(internalDir: File, hour: Int, minute: Int): Boolean {
+        fun create(internalDir: File, hour: Int, minute: Int): AlarmSet {
             // 新規作成
             val new = internalDir.absolutePath + "/alarms/"
 
@@ -47,7 +47,7 @@ class AlarmSet {
             Files.createFile(Paths.get(new + alarmNum.toString() + ".txt"))
 
             recording(new + alarmNum.toString() + ".txt", hour, minute)
-            return true
+            return AlarmSet(hour, minute)
         }
 
         private fun recording(fileName: String, hour: Int, minute: Int) {

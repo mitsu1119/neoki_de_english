@@ -101,13 +101,13 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
 
         // アラームを入力された時刻にセット
         // alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, cl.timeInMillis, pending)
-        AlarmSet.create(internalDir, hour, minute)
 
         // アラームを5秒後にセット
         alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 5000, pending)
         Log.v("yey", "Set Alarm")
 
-        transformViewModel.addAlarm()
+        val al = AlarmSet.create(internalDir, hour, minute)
+        transformViewModel.addAlarm(al)
     }
 
     override fun onDestroyView() {
