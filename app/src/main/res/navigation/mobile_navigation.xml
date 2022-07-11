@@ -100,4 +100,10 @@
         android:name="io.github.mitsu1119.neoki_de_english.ui.download.DownloadFragment"
         android:label="Download"
         tools:layout="@layout/fragment_download"/>
+
+    <fragment
+        android:id="@+id/nav_quiz"
+        android:name="io.github.mitsu1119.neoki_de_english.ui.quiz.QuizFragment"
+        android:label="Quiz"
+        tools:layout="@layout/fragment_quiz"/>
 </navigation>

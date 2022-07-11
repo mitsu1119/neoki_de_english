@@ -8,6 +8,7 @@ import android.content.Intent
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.navigation.NavDeepLinkBuilder
 import io.github.mitsu1119.neoki_de_english.R
 
 
@@ -31,10 +32,16 @@ class AlarmReceiver: BroadcastReceiver() {
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.createNotificationChannel(channel)
 
+        val pendingIntent = NavDeepLinkBuilder(context)
+            .setGraph(R.navigation.mobile_navigation)
+            .setDestination(R.id.nav_quiz)
+            .createPendingIntent()
+
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_launcher_background)
             .setContentTitle("通知")
             .setContentText("alarm")
+            .setContentIntent(pendingIntent)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
         with(NotificationManagerCompat.from(context)) {

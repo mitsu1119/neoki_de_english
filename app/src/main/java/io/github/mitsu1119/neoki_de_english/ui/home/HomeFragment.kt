@@ -106,6 +106,8 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 5000, pending)
         Log.v("yey", "Set Alarm")
 
+        // TODO("曜日でリピート")
+
         val al = AlarmSet.create(internalDir, hour, minute)
         transformViewModel.addAlarm(al)
     }
