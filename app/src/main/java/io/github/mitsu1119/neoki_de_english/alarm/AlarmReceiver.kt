@@ -50,6 +50,7 @@ class AlarmReceiver: BroadcastReceiver() {
             .setContentTitle("通知")
             .setContentText("alarm, dic: $dic")
             .setContentIntent(pendingIntent)
+            .setAutoCancel(true)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
         with(NotificationManagerCompat.from(context)) {
