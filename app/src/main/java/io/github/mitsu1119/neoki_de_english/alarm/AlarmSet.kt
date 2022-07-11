@@ -18,16 +18,14 @@ class AlarmSet {
     var time: LocalTime
         private set
 
-    constructor() {
-        date = LocalDate.now()
-        time = LocalTime.now()
-    }
+    var number: Int
+        private set
 
-    constructor(hour: Int, minute: Int) {
+    constructor(hour: Int, minute: Int, number: Int) {
         this.date = LocalDate.now()
-
         this.time = LocalTime.now()
         this.time = this.time.withHour(hour).withMinute(minute)
+        this.number = number
     }
 
     companion object {
@@ -47,7 +45,7 @@ class AlarmSet {
             Files.createFile(Paths.get(new + alarmNum.toString() + ".txt"))
 
             recording(new + alarmNum.toString() + ".txt", hour, minute)
-            return AlarmSet(hour, minute)
+            return AlarmSet(hour, minute, alarmNum)
         }
 
         private fun recording(fileName: String, hour: Int, minute: Int) {
@@ -57,13 +55,14 @@ class AlarmSet {
             fw.close()
         }
 
-        fun load(fileName: String): AlarmSet {
-            val f = File(fileName)
+        fun load(alarmDir: String, fileName: String): AlarmSet {
+            val number = fileName.split(".")[0].toInt()
+            val f = File(alarmDir + fileName)
             val st = f.readLines().first()
 
             val hour = st.split(",")[0].toInt()
             val minute = st.split(",")[1].toInt()
-            val ret = AlarmSet(hour, minute)
+            val ret = AlarmSet(hour, minute, number)
 
             return ret
         }

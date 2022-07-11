@@ -27,7 +27,7 @@ import io.github.mitsu1119.neoki_de_english.R
 import io.github.mitsu1119.neoki_de_english.alarm.AlarmReceiver
 import io.github.mitsu1119.neoki_de_english.alarm.AlarmSet
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentHomeBinding
-import io.github.mitsu1119.neoki_de_english.databinding.ItemTransformBinding
+import io.github.mitsu1119.neoki_de_english.databinding.ItemHomeBinding
 import io.github.mitsu1119.neoki_de_english.ui.create_alarm.CreateAlarmFragment
 import java.io.File
 import java.util.*
@@ -42,9 +42,6 @@ import java.util.*
 class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
 
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     private lateinit var internalDir: File
@@ -129,7 +126,7 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         }) {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransformViewHolder {
-            val binding = ItemTransformBinding.inflate(LayoutInflater.from(parent.context))
+            val binding = ItemHomeBinding.inflate(LayoutInflater.from(parent.context))
             return TransformViewHolder(binding)
         }
 
@@ -138,7 +135,7 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         }
     }
 
-    class TransformViewHolder(binding: ItemTransformBinding) :
+    class TransformViewHolder(binding: ItemHomeBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         val textView: TextView = binding.textViewItemTransform

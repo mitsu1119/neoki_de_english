@@ -16,16 +16,12 @@ class HomeViewModel : ViewModel() {
     fun loadAlarms(internalDir: File) {
         val alarmDir = internalDir.absolutePath + "/alarms/"
         for(name in File(alarmDir).list()) {
-            val al = AlarmSet.load(alarmDir + name)
+            val al = AlarmSet.load(alarmDir, name)
             addAlarm(al)
         }
     }
     fun addAlarm(alarm: AlarmSet) {
         _alarms.value?.add(alarm)
-        applyAlarms()
-    }
-    fun addAlarm() {
-        _alarms.value?.add(AlarmSet())
         applyAlarms()
     }
     val alarms: LiveData<MutableList<AlarmSet>> = _alarms
