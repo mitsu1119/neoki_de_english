@@ -2,6 +2,7 @@ package io.github.mitsu1119.neoki_de_english.ui.home
 
 import android.annotation.SuppressLint
 import android.app.AlarmManager
+import android.app.AlertDialog
 import android.app.PendingIntent.getBroadcast
 import android.app.TimePickerDialog
 import android.app.TimePickerDialog.OnTimeSetListener
@@ -9,11 +10,13 @@ import android.content.Context.ALARM_SERVICE
 import android.content.Intent
 import android.os.Bundle
 import android.os.SystemClock
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -24,6 +27,7 @@ import io.github.mitsu1119.neoki_de_english.R
 import io.github.mitsu1119.neoki_de_english.alarm.AlarmReceiver
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentHomeBinding
 import io.github.mitsu1119.neoki_de_english.databinding.ItemTransformBinding
+import io.github.mitsu1119.neoki_de_english.ui.create_alarm.CreateAlarmFragment
 import java.util.*
 
 
@@ -33,7 +37,7 @@ import java.util.*
  * the [RecyclerView] using LinearLayoutManager in a small screen
  * and shows items using GridLayoutManager in a large screen.
  */
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
 
     private var _binding: FragmentHomeBinding? = null
 
@@ -60,11 +64,12 @@ class HomeFragment : Fragment() {
 
         val btnAdd = binding.btnAdd
         btnAdd.setOnClickListener { view ->
-            findNavController().navigate(R.id.action_to_create_alarm)
-
+            val dialog = CreateAlarmFragment()
+            dialog.show(childFragmentManager, "CreateAlarm")
 
             //　アラーム追加
-            /* transformViewModel.addAlarm()
+            /*
+             transformViewModel.addAlarm()
 
             val timePickerDialog = TimePickerDialog(context,
                 { view, hourOfDay, minute ->
@@ -100,6 +105,10 @@ class HomeFragment : Fragment() {
         }
 
         return root
+    }
+
+    override fun onDialogPositiveClick(dialog: DialogFragment, st1:String, st2:String) {
+        Log.e("yey", "$st1, $st2")
     }
 
     override fun onDestroyView() {
