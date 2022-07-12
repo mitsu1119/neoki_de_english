@@ -143,7 +143,7 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
         // 単語削除
         val btnRemove = binding.btnRemove
         btnRemove.setOnClickListener {
-            Log.e("yey", transformViewModel.getChecked().toString())
+            // transformViewModel.removeWords(internalDir, transformViewModel.getChecked())
         }
 
         return root

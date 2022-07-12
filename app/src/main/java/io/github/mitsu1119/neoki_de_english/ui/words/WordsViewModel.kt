@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.github.mitsu1119.neoki_de_english.dictionary.DicSet
-import java.io.File
+import java.io.*
 
 class WordsViewModel: ViewModel() {
     private val _dicName = MutableLiveData<String>().apply {
@@ -38,5 +38,32 @@ class WordsViewModel: ViewModel() {
             if(_words.value!!.get(i).checked) ret.add(i)
         }
         return ret
+    }
+
+    fun removeWords(internalDir: File, posess: MutableList<Int>) {
+        val positions = posess
+        val f = File(internalDir.absolutePath + "/dics/" + dicName.value + "/words.txt")
+        var lines = mutableListOf<String>()
+        BufferedReader(FileReader(f)).use { br ->
+            var line: String?
+            var cnt = 0
+            while(br.readLine().also { line = it } != null) {
+                if((positions.size == 0) or (cnt != positions.first())) {
+                    lines.add(line!!)
+                    lines.add(br.readLine())
+                } else {
+                    br.readLine()
+                    positions.removeAt(0)
+                }
+                cnt += 1
+            }
+        }
+
+        val bw = BufferedWriter(FileWriter(f))
+        for(i in lines) {
+            bw.write(i)
+            bw.newLine()
+        }
+        bw.close()
     }
 }
