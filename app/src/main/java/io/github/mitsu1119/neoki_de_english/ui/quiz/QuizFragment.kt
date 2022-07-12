@@ -2,6 +2,7 @@ package io.github.mitsu1119.neoki_de_english.ui.quiz
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -23,6 +24,8 @@ class QuizFragment: Fragment() {
     private val binding get() = _binding!!
 
     private val args: QuizFragmentArgs by navArgs()
+
+    private lateinit var mp: MediaPlayer
 
     @SuppressLint("UnspecifiedImmutableFlag")
     override fun onCreateView(
@@ -110,23 +113,20 @@ class QuizFragment: Fragment() {
 
         // 音を鳴らす
         requireContext().stopService(Intent(requireContext().applicationContext, MPService::class.java))
-        // Log.v("yey", "Now Playing ${AlarmMP.mp}")
-        /*
         val audioFileName = requireContext().filesDir.absolutePath + "/dics/" + dicName + "/" + eng + ".wav"
-        val mp = MediaPlayer().apply {
+        mp = MediaPlayer().apply {
             setDataSource(audioFileName)
             isLooping = true
         }
         mp.prepare()
         mp.start()
 
-         */
-
         return root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        mp.stop()
         _binding = null
     }
 
