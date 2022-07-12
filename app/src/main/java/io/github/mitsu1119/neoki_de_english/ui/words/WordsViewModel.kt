@@ -15,7 +15,7 @@ class WordsViewModel: ViewModel() {
     }
     val dicName: LiveData<String> = _dicName
 
-    private val _words = MutableLiveData<MutableList<Word>>().apply {
+    private var _words = MutableLiveData<MutableList<Word>>().apply {
         value = mutableListOf()
     }
     fun setWord(word: Word) {
@@ -27,4 +27,16 @@ class WordsViewModel: ViewModel() {
         _words.value = v
     }
     val words: LiveData<MutableList<Word>> = _words
+
+    fun cbChange(position: Int) {
+        _words.value?.get(position)?.checked = !(_words.value!!.get(position)?.checked)
+    }
+
+    fun getChecked(): ArrayList<Int> {
+        val ret = arrayListOf<Int>()
+        for(i in (0..(_words.value!!.size - 1))) {
+            if(_words.value!!.get(i).checked) ret.add(i)
+        }
+        return ret
+    }
 }

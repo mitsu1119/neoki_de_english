@@ -13,6 +13,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
@@ -75,6 +76,13 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
                 }
             }
 
+        adapter.cbRemoveClickListener =
+            object: WordsAdapter.OnCheckedChangeListener {
+                override fun onCheckedChanged(position: Int): Boolean {
+                    transformViewModel.cbChange(position)
+                    return true
+                }
+            }
 
         // 単語の新規作成
         val btnAdd = binding.btnAdd
@@ -131,6 +139,13 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
                 }
             })
         }
+
+        // 単語削除
+        val btnRemove = binding.btnRemove
+        btnRemove.setOnClickListener {
+            Log.e("yey", transformViewModel.getChecked().toString())
+        }
+
         return root
     }
 
@@ -172,16 +187,26 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
 
         override fun onBindViewHolder(holder: WordsViewHolder, position: Int) {
             val word = getItem(position)
+
             holder.textView.text = word.str
             holder.itemView.setOnClickListener {
                 itemClickListener?.onItemClick(holder)
             }
+
+            holder.cbRemove.setOnClickListener {
+                cbRemoveClickListener?.onCheckedChanged(position)
+            }
         }
 
         var itemClickListener: OnItemClickListener? = null
+        var cbRemoveClickListener: OnCheckedChangeListener? = null
 
         interface OnItemClickListener {
             fun onItemClick(holder: WordsViewHolder): Boolean
+        }
+
+        interface OnCheckedChangeListener {
+            fun onCheckedChanged(position: Int): Boolean
         }
     }
 
