@@ -30,7 +30,8 @@
 
         android:src="@drawable/make2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/under" />
+        app:layout_constraintTop_toBottomOf="@+id/under"
+        android:contentDescription="localdicbutton"/>
 
     <ImageButton
         android:id="@+id/imageViewright"
@@ -39,8 +40,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="32dp"
         android:background="#0000"
-
-
+        android:contentDescription="uplbutton"
         android:src="@drawable/make2"
         app:layout_constraintStart_toEndOf="@+id/imageViewleft"
         app:layout_constraintTop_toBottomOf="@+id/imageViewbig" />
@@ -55,7 +55,8 @@
         android:src="@drawable/make2"
         android:background="#0000"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="downlbutton"/>
 
     <ImageView
         android:id="@+id/upView"
@@ -84,11 +85,11 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="56dp"
         android:fontFamily="@font/galindo"
-        android:text="Local    Dictionary"
         android:shadowColor="#000000"
         android:shadowDx="3"
         android:shadowDy="3"
         android:shadowRadius="3"
+        android:text="Local    Dictionary"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
@@ -101,17 +102,17 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/galindo"
-        android:text="Dictionary"
         android:shadowColor="#000000"
         android:shadowDx="1"
         android:shadowDy="1"
         android:shadowRadius="9"
+        android:text="Dictionary"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="30sp"
+        android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

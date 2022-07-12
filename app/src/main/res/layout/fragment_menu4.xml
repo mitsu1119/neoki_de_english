@@ -54,7 +54,8 @@
         android:layout_marginStart="104dp"
         android:layout_marginTop="116dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        android:contentDescription="sppiner"/>
 
     <ImageButton
         android:id="@+id/upbutton"
@@ -65,7 +66,8 @@
         android:background="#0000"
         android:src="@drawable/make2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        android:contentDescription="upbutton"/>
 
     <TextView
         android:id="@+id/textView4"

@@ -47,7 +47,8 @@
         android:src="@drawable/make4"
         android:background="#0000"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        android:contentDescription="dicbutton"/>
 
     <ImageButton
         android:id="@+id/dictionary"
@@ -58,7 +59,8 @@
         android:src="@drawable/make2"
         android:background="#0000"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alarm" />
+        app:layout_constraintTop_toBottomOf="@+id/alarm"
+        android:contentDescription="dicbutton"/>
 
     <ImageView
         android:id="@+id/clock"
