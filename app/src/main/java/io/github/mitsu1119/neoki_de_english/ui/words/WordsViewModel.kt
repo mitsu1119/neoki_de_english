@@ -40,20 +40,25 @@ class WordsViewModel: ViewModel() {
         return ret
     }
 
-    fun removeWords(internalDir: File, posess: MutableList<Int>) {
-        val positions = posess
+    fun removeWords(internalDir: File, positions: MutableList<Int>) {
+        val newWords = mutableListOf<Word>()
+        for(i in (0..(_words.value!!.size - 1))) {
+            if(!positions.contains(i)) newWords.add(_words.value!!.get(i))
+        }
+        _words.value = newWords
+
         val f = File(internalDir.absolutePath + "/dics/" + dicName.value + "/words.txt")
         var lines = mutableListOf<String>()
         BufferedReader(FileReader(f)).use { br ->
             var line: String?
             var cnt = 0
             while(br.readLine().also { line = it } != null) {
-                if((positions.size == 0) or (cnt != positions.first())) {
+                if((positions.size == 0) or (cnt != positions.firstOrNull())) {
                     lines.add(line!!)
                     lines.add(br.readLine())
                 } else {
                     br.readLine()
-                    positions.removeAt(0)
+                    positions.removeFirst()
                 }
                 cnt += 1
             }

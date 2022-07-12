@@ -44,13 +44,16 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
 
     private var tts: TextToSpeech? = null
 
+    private lateinit var transformViewModel: WordsViewModel
+    private lateinit var adapter: WordsAdapter
+
     @SuppressLint("UnspecifiedImmutableFlag")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val transformViewModel = ViewModelProvider(this).get(WordsViewModel::class.java)
+        transformViewModel = ViewModelProvider(this).get(WordsViewModel::class.java)
         _binding = FragmentWordsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -62,27 +65,7 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
 
         tts = TextToSpeech(requireContext(), this)
 
-        val recyclerView = binding.recyclerView
-        val adapter = WordsAdapter()
-        recyclerView.adapter = adapter
-        transformViewModel.words.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
-        }
-
-        adapter.itemClickListener =
-            object : WordsAdapter.OnItemClickListener {
-                override fun onItemClick(holder: WordsViewHolder): Boolean {
-                    return true
-                }
-            }
-
-        adapter.cbRemoveClickListener =
-            object: WordsAdapter.OnCheckedChangeListener {
-                override fun onCheckedChanged(position: Int): Boolean {
-                    transformViewModel.cbChange(position)
-                    return true
-                }
-            }
+        updateAdapter()
 
         // 単語の新規作成
         val btnAdd = binding.btnAdd
@@ -143,7 +126,9 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
         // 単語削除
         val btnRemove = binding.btnRemove
         btnRemove.setOnClickListener {
-            // transformViewModel.removeWords(internalDir, transformViewModel.getChecked())
+            val positions = transformViewModel.getChecked()
+            transformViewModel.removeWords(internalDir, positions)
+            updateAdapter()
         }
 
         return root
@@ -168,6 +153,31 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
             tts?.setLanguage(Locale.ENGLISH)
             tts?.synthesizeToFile(text, null, of, "WordsID")
         }
+    }
+
+    private fun updateAdapter() {
+        val recyclerView = binding.recyclerView
+        adapter = WordsAdapter()
+        recyclerView.adapter = adapter
+        transformViewModel.words.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
+
+        adapter.itemClickListener =
+            object : WordsAdapter.OnItemClickListener {
+                override fun onItemClick(holder: WordsViewHolder): Boolean {
+                    return true
+                }
+            }
+
+        adapter.cbRemoveClickListener =
+            object: WordsAdapter.OnCheckedChangeListener {
+                override fun onCheckedChanged(position: Int): Boolean {
+                    transformViewModel.cbChange(position)
+                    return true
+                }
+            }
+
     }
 
     class WordsAdapter :
