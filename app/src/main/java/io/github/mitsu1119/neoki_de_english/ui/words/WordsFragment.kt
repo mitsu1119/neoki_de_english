@@ -93,7 +93,7 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
             nameInputDialog.setPositiveButton("OK") { dialog, _ ->
                 speak(editEnglish.text.toString(), internalDir.absolutePath + "/dics/" + dicName + "/" + editEnglish.text.toString() + ".wav")
                 DicSet.recording(internalDir, "/dics/" + dicName, editEnglish.text.toString(), editJapanese.text.toString())
-                transformViewModel.setWord(editEnglish.text.toString())
+                transformViewModel.setWord(Word(editEnglish.text.toString(), false))
                 dialog.dismiss()
             }
 
@@ -156,12 +156,12 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
     }
 
     class WordsAdapter :
-        ListAdapter<String, WordsViewHolder>(object : DiffUtil.ItemCallback<String>() {
+        ListAdapter<Word, WordsViewHolder>(object : DiffUtil.ItemCallback<Word>() {
 
-            override fun areItemsTheSame(oldItem: String, newItem: String): Boolean =
+            override fun areItemsTheSame(oldItem: Word, newItem: Word): Boolean =
                 oldItem == newItem
 
-            override fun areContentsTheSame(oldItem: String, newItem: String): Boolean =
+            override fun areContentsTheSame(oldItem: Word, newItem: Word): Boolean =
                 oldItem == newItem
         }) {
 
@@ -172,7 +172,7 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
 
         override fun onBindViewHolder(holder: WordsViewHolder, position: Int) {
             val word = getItem(position)
-            holder.textView.text = word
+            holder.textView.text = word.str
             holder.itemView.setOnClickListener {
                 itemClickListener?.onItemClick(holder)
             }

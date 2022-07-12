@@ -15,14 +15,16 @@ class WordsViewModel: ViewModel() {
     }
     val dicName: LiveData<String> = _dicName
 
-    private val _words = MutableLiveData<MutableList<String>>().apply {
+    private val _words = MutableLiveData<MutableList<Word>>().apply {
         value = mutableListOf()
     }
-    fun setWord(word: String) {
+    fun setWord(word: Word) {
         _words.value?.add(word)
     }
     fun loadWords(internalDir: File, dicName: String) {
-        _words.value = DicSet.loadOnlyEnglish(internalDir, dicName)
+        val v = mutableListOf<Word>()
+        for(i in DicSet.loadOnlyEnglish(internalDir, dicName)) v.add(Word(i, false))
+        _words.value = v
     }
-    val words: LiveData<MutableList<String>> = _words
+    val words: LiveData<MutableList<Word>> = _words
 }
