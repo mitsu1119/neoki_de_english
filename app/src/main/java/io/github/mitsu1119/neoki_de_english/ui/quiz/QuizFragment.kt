@@ -1,6 +1,7 @@
 package io.github.mitsu1119.neoki_de_english.ui.quiz
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -12,12 +13,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import io.github.mitsu1119.neoki_de_english.alarm.MPService
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentQuizBinding
 import io.github.mitsu1119.neoki_de_english.dictionary.DicSet
-import io.github.mitsu1119.neoki_de_english.ui.local_dictionary.LocalDictionaryFragmentDirections
-import io.github.mitsu1119.neoki_de_english.ui.words.WordsFragmentArgs
 import kotlin.concurrent.timer
-import kotlin.random.Random
 
 class QuizFragment: Fragment() {
     private var _binding: FragmentQuizBinding? = null
@@ -109,6 +108,20 @@ class QuizFragment: Fragment() {
             goNext(dicName, numberOfQuiz, cw, engs, answers, corrects)
         }
 
+        // 音を鳴らす
+        requireContext().stopService(Intent(requireContext().applicationContext, MPService::class.java))
+        // Log.v("yey", "Now Playing ${AlarmMP.mp}")
+        /*
+        val audioFileName = requireContext().filesDir.absolutePath + "/dics/" + dicName + "/" + eng + ".wav"
+        val mp = MediaPlayer().apply {
+            setDataSource(audioFileName)
+            isLooping = true
+        }
+        mp.prepare()
+        mp.start()
+
+         */
+
         return root
     }
 
@@ -122,7 +135,7 @@ class QuizFragment: Fragment() {
             val action = QuizFragmentDirections.actionToResult(cw, engs, answers, corrects)
             findNavController().navigate(action)
         } else {
-            val action = QuizFragmentDirections.actionToQuiz(dicName, numberOfQuiz + 1, cw, engs, answers, corrects)
+            val action = QuizFragmentDirections.actionToQuiz(dicName, numberOfQuiz + 1, cw, engs, answers, corrects,)
             findNavController().navigate(action)
         }
 

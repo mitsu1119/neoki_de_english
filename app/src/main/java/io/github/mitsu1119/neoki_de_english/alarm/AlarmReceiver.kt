@@ -5,20 +5,16 @@ import android.app.NotificationManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.media.AudioAttributes
 import android.media.MediaPlayer
-import android.media.SoundPool
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavDeepLinkBuilder
 import io.github.mitsu1119.neoki_de_english.R
 import io.github.mitsu1119.neoki_de_english.dictionary.DicSet
-import io.github.mitsu1119.neoki_de_english.ui.quiz.QuizFragmentArgs
-import java.io.File
 
 
 class AlarmReceiver: BroadcastReceiver() {
@@ -35,14 +31,9 @@ class AlarmReceiver: BroadcastReceiver() {
         val jp = word.second
         val audioFileName = context.filesDir.absolutePath + "/dics/" + dic + "/" + eng + ".wav"
 
-        // アラーム音作成
-        val mp = MediaPlayer().apply {
-            setDataSource(audioFileName)
-            isLooping = true
-        }
-        mp.prepare()
-        mp.start()
-
+        // アラーム再生用のサービスを開始
+        val serviceIntent = Intent(context, MPService::class.java)
+        context.startService(serviceIntent)
 
         // 通知作成
         val CHANNEL_ID = "channel_id"
