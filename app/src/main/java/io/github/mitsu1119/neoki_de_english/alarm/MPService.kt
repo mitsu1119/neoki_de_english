@@ -19,7 +19,7 @@ class MPService: Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         // アラーム音作成
-        val audioFileName = baseContext.filesDir.absolutePath + "/dics/dic1/hello.wav"
+        val audioFileName = intent!!.getStringExtra("AudioFileName")
         mp = MediaPlayer().apply {
             setDataSource(audioFileName)
             isLooping = true

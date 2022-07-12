@@ -33,6 +33,7 @@ class AlarmReceiver: BroadcastReceiver() {
 
         // アラーム再生用のサービスを開始
         val serviceIntent = Intent(context, MPService::class.java)
+        serviceIntent.putExtra("AudioFileName", audioFileName)
         context.startService(serviceIntent)
 
         // 通知作成
