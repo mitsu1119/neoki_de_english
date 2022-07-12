@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
@@ -25,6 +26,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.github.mitsu1119.neoki_de_english.R
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentWordsBinding
 import io.github.mitsu1119.neoki_de_english.databinding.ItemTransformBinding
+import io.github.mitsu1119.neoki_de_english.databinding.ItemWordsBinding
 import io.github.mitsu1119.neoki_de_english.dictionary.DicSet
 import org.intellij.lang.annotations.JdkConstants
 import org.w3c.dom.Text
@@ -164,7 +166,7 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
         }) {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordsViewHolder {
-            val binding = ItemTransformBinding.inflate(LayoutInflater.from(parent.context))
+            val binding = ItemWordsBinding.inflate(LayoutInflater.from(parent.context))
             return WordsViewHolder(binding)
         }
 
@@ -183,9 +185,10 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
         }
     }
 
-    class WordsViewHolder(binding: ItemTransformBinding) :
+    class WordsViewHolder(binding: ItemWordsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        val textView: TextView = binding.textViewItemTransform
+        val textView: TextView = binding.textViewItemWords
+        val cbRemove: CheckBox = binding.cbRemove
     }
 }
