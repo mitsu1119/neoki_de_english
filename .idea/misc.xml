@@ -56,15 +56,16 @@
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_alarm.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_home.xml" value="0.3088768115942029" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_makeal.xml" value="0.3088768115942029" />
-        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_makealarm.xml" value="0.4466666666666667" />
-        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_menu2.xml" value="0.1" />
-        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_menu3.xml" value="0.22" />
-        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_menu4.xml" value="0.1" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_makealarm.xml" value="0.39479166666666665" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_menu2.xml" value="0.3617269544924154" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_menu3.xml" value="0.3617269544924154" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_menu4.xml" value="0.3617269544924154" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_settings.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_start.xml" value="0.1" />
-        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_wordlist.xml" value="0.1" />
-        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragmet_alarm.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_start.xml" value="0.22" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_wordlist.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragmet_alarm.xml" value="0.22" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/mag.xml" value="0.3088768115942029" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/nav_header_main.xml" value="0.6666666666666666" />
       </map>
     </option>
   </component>

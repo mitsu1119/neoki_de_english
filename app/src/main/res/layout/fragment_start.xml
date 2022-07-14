@@ -14,6 +14,8 @@
         android:rotation="180"
         android:scaleType="centerCrop"
         android:src="@drawable/pastel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="365dp" />
 
 
@@ -21,20 +23,20 @@
         android:id="@+id/title"
         android:layout_width="319dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/galindo"
-        android:text="Neoki de         English"
         android:shadowColor="#000000"
         android:shadowDx="3"
         android:shadowDy="3"
         android:shadowRadius="3"
+        android:text="Neoki de         English"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="48sp"
         android:textStyle="bold"
         android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/back" />
 
@@ -42,25 +44,25 @@
         android:id="@+id/alarm"
         android:layout_width="331dp"
         android:layout_height="334dp"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="32dp"
-        android:src="@drawable/make4"
         android:background="#0000"
+        android:contentDescription="dicbutton"
+        android:src="@drawable/make4"
+        app:layout_constraintEnd_toEndOf="@+id/back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        android:contentDescription="dicbutton"/>
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <ImageButton
         android:id="@+id/dictionary"
         android:layout_width="305dp"
         android:layout_height="104dp"
-        android:layout_marginStart="56dp"
         android:layout_marginTop="24dp"
-        android:src="@drawable/make2"
         android:background="#0000"
+        android:contentDescription="dicbutton"
+        android:src="@drawable/make2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alarm"
-        android:contentDescription="dicbutton"/>
+        app:layout_constraintTop_toBottomOf="@+id/alarm" />
 
     <ImageView
         android:id="@+id/clock"

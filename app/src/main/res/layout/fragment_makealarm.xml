@@ -14,7 +14,9 @@
         android:rotation="180"
         android:scaleType="centerCrop"
         android:src="@drawable/pastel"
-        tools:layout_editor_absoluteX="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="0dp" />
 
     <TextView
@@ -44,16 +46,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <CheckBox
-        android:id="@+id/Allcheck"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:textSize="11sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/all" />
-
-    <CheckBox
         android:id="@+id/Wedheck"
         android:layout_width="48dp"
         android:layout_height="48dp"
@@ -65,8 +57,9 @@
         android:id="@+id/Moncheck"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="4dp"
-        app:layout_constraintStart_toEndOf="@+id/Allcheck"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <CheckBox
@@ -132,9 +125,9 @@
         android:id="@+id/under"
         android:layout_width="293dp"
         android:layout_height="53dp"
-        android:layout_marginStart="60dp"
         android:layout_marginTop="64dp"
         android:src="@drawable/under_line"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -249,29 +242,16 @@
         />
 
     <TextView
-        android:id="@+id/all"
-        android:layout_width="35dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/galindo"
-        android:text="ALL"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <TextView
         android:id="@+id/textView6"
         android:layout_width="35dp"
         android:layout_height="19dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/galindo"
         android:text="Mon"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        app:layout_constraintStart_toEndOf="@+id/all"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
