@@ -23,6 +23,7 @@ import io.github.mitsu1119.neoki_de_english.alarm.AlarmSet
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentHomeBinding
 import io.github.mitsu1119.neoki_de_english.databinding.ItemHomeBinding
 import io.github.mitsu1119.neoki_de_english.ui.create_alarm.CreateAlarmFragment
+import io.github.mitsu1119.neoki_de_english.ui.words.WordsFragment
 import java.io.File
 import java.util.*
 
@@ -57,6 +58,15 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         val recyclerView = binding.recyclerviewTransform
         val adapter = TransformAdapter()
         recyclerView.adapter = adapter
+
+        adapter.btnRemoveClickListener =
+            object: TransformAdapter.OnRemoveClickListener {
+                override fun onRemoveClick(position: Int): Boolean {
+                    Log.v("yey", "Remove: $position")
+                    return true
+                }
+            }
+
         transformViewModel.texts.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
@@ -127,7 +137,14 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         override fun onBindViewHolder(holder: TransformViewHolder, position: Int) {
             holder.textView.text = getItem(position)
             holder.btnRemove.setOnClickListener {
+                btnRemoveClickListener?.onRemoveClick(position)
             }
+        }
+
+        var btnRemoveClickListener: OnRemoveClickListener? = null
+
+        interface OnRemoveClickListener {
+            fun onRemoveClick(position: Int): Boolean
         }
     }
 
