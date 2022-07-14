@@ -20,6 +20,7 @@ import androidx.navigation.fragment.findNavController
 import io.github.mitsu1119.neoki_de_english.R
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentTitleBinding
 import io.github.mitsu1119.neoki_de_english.ui.home.HomeFragment
+import java.io.File
 import java.util.*
 
 class TitleFragment : Fragment() {
@@ -47,6 +48,13 @@ class TitleFragment : Fragment() {
         btnDictionary.setOnClickListener { view ->
             findNavController().navigate(R.id.action_to_dictionary)
         }
+
+        // alarms と dics ディレクトリが存在しないとき作成
+        val internalDir = requireContext().filesDir
+        val alarms = File(internalDir.absolutePath + "/alarms")
+        if(!alarms.exists()) alarms.mkdir()
+        val dics = File(internalDir.absolutePath + "/dics")
+        if(!dics.exists()) dics.mkdir()
 
         return root
     }
