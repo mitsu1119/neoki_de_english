@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    tools:layout_editor_absoluteX="-2dp">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="107dp"
+            android:fontFamily="@font/galindo"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textSize="80dp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/del"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="294dp"
+            android:background="#0000"
+            android:contentDescription="onoff"
+            android:src="@drawable/make5" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-34dp"
+            android:layout_marginStart="314dp"
+            android:fontFamily="@font/galindo"
+            android:text="Delete"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
