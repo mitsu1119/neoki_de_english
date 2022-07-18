@@ -1,40 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="wrap_content"
-    tools:layout_editor_absoluteX="-2dp">
+    app:cardCornerRadius="6dp"
+    app:cardElevation="6dp"
+    app:contentPadding="8dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="102dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/dicthumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_weight="1"
+            />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/dicname"
             android:layout_width="match_parent"
-            android:layout_height="107dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/galindo"
-            android:text="TextView"
             android:textAlignment="center"
-            android:textSize="80dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:text=""
             android:textStyle="bold" />
 
-        <ImageButton
-            android:id="@+id/del"
-            android:layout_width="100dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginStart="294dp"
-            android:background="#0000"
-            android:contentDescription="onoff"
-            android:src="@drawable/make5" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-34dp"
-            android:layout_marginStart="314dp"
-            android:fontFamily="@font/galindo"
-            android:text="Delete"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF" />
     </LinearLayout>
+
+</androidx.cardview.widget.CardView>
