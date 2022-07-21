@@ -131,7 +131,7 @@ class LocalDictionaryFragment: Fragment() {
         }) {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LocalDicViewHolder {
-            val binding = ItemTransformBinding.inflate(LayoutInflater.from(parent.context))
+            val binding = ItemTransformBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             return LocalDicViewHolder(binding)
         }
 

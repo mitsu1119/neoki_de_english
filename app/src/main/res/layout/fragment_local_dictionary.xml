@@ -5,24 +5,74 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/recyclerView"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="LinearLayoutManager"
-        tools:context=".ui.local_dictionary.LocalDictionaryFragment" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:rotation="180"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pastel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/text_settings"
+        android:layout_width="343dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/galindo"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="3"
+        android:text="Select                              Local Dictionary"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/under"
+        android:layout_width="306dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="112dp"
+        android:src="@drawable/under_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:clickable="true"
+        android:contentDescription="addbutton"
+        android:src="@drawable/ic_baseline_add_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_add_24dp" />
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="418dp"
+        android:layout_marginTop="28dp"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_settings"
+        app:layout_constraintVertical_bias="0.029"
+        tools:context=".ui.local_dictionary.LocalDictionaryFragment" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
