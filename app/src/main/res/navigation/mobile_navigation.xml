@@ -6,24 +6,6 @@
     app:startDestination="@+id/nav_title">
 
     <fragment
-        android:id="@+id/nav_reflow"
-        android:name="io.github.mitsu1119.neoki_de_english.ui.menu2.Menu2Fragment"
-        android:label="@string/menu_menu2"
-        tools:layout="@layout/fragment_menu2" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="io.github.mitsu1119.neoki_de_english.ui.menu3.Menu3Fragment"
-        android:label="@string/menu_menu3"
-        tools:layout="@layout/fragment_menu3" />
-
-    <fragment
-        android:id="@+id/nav_settings"
-        android:name="io.github.mitsu1119.neoki_de_english.ui.settings.SettingsFragment"
-        android:label="@string/menu_settings"
-        tools:layout="@layout/fragment_settings" />
-
-    <fragment
         android:id="@+id/nav_title"
         android:name="io.github.mitsu1119.neoki_de_english.ui.title.TitleFragment"
         android:label="Title"
