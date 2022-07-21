@@ -5,26 +5,114 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnAlarm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Alarm"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:rotation="180"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pastel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.393" />
+        tools:layout_editor_absoluteY="365dp" />
 
-    <Button
-        android:id="@+id/btnDic"
-        android:layout_width="wrap_content"
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="319dp"
         android:layout_height="wrap_content"
-        android:text="Dictionary"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/galindo"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="3"
+        android:text="Neoki de         English"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.628" />
+        app:layout_constraintTop_toTopOf="@+id/back" />
+
+    <ImageButton
+        android:id="@+id/btnAlarm"
+        android:layout_width="331dp"
+        android:layout_height="334dp"
+        android:layout_marginTop="32dp"
+        android:background="#0000"
+        android:contentDescription="dicbutton"
+        android:src="@drawable/make4"
+        app:layout_constraintEnd_toEndOf="@+id/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <ImageButton
+        android:id="@+id/btnDic"
+        android:layout_width="305dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="24dp"
+        android:background="#0000"
+        android:contentDescription="dicbutton"
+        android:src="@drawable/make2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAlarm" />
+
+    <ImageView
+        android:id="@+id/clock"
+        android:layout_width="243dp"
+        android:layout_height="224dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/clock"
+        app:layout_constraintStart_toStartOf="@+id/btnAlarm"
+        app:layout_constraintTop_toTopOf="@+id/btnAlarm" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="122dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/galindo"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="3"
+        android:text="Alarm"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/btnAlarm"
+        app:layout_constraintTop_toBottomOf="@+id/clock" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/galindo"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="3"
+        android:text="Dictionary"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="45sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/btnDic"
+        app:layout_constraintTop_toTopOf="@+id/btnDic" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
