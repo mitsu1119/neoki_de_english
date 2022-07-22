@@ -82,31 +82,34 @@ class QuizFragment: Fragment() {
         // 選択肢
         val ans = java.util.Random().nextInt(3)
         val btnChoice1 = binding.btnChoice1
-        if(ans == 0) btnChoice1.text = transformViewModel.q.value?.second
-        else btnChoice1.text = ds[java.util.Random().nextInt(ds.size)].second
+        val text1 = binding.text1
+        if(ans == 0) text1.text = transformViewModel.q.value?.second
+        else text1.text = ds[java.util.Random().nextInt(ds.size)].second
         btnChoice1.setOnClickListener {
-            answers = answers + btnChoice1.text + "&"
-            if(btnChoice1.text.equals(transformViewModel.q.value?.second)) cw = cw + "o"
+            answers = answers + text1.text + "&"
+            if(text1.text.equals(transformViewModel.q.value?.second)) cw = cw + "o"
             else cw = cw + "x"
             goNext(dicName, numberOfQuiz, cw, engs, answers, corrects)
         }
 
         val btnChoice2 = binding.btnChoice2
-        if(ans == 1) btnChoice2.text = transformViewModel.q.value?.second
-        else btnChoice2.text = ds[java.util.Random().nextInt(ds.size)].second
-        btnChoice2.setOnClickListener {
-            answers = answers + btnChoice2.text + "&"
-            if(btnChoice2.text.equals(transformViewModel.q.value?.second)) cw = cw + "o"
+        val text2 = binding.text2
+        if(ans == 1) text2.text = transformViewModel.q.value?.second
+        else text2.text = ds[java.util.Random().nextInt(ds.size)].second
+        text2.setOnClickListener {
+            answers = answers + text2.text + "&"
+            if(text2.text.equals(transformViewModel.q.value?.second)) cw = cw + "o"
             else cw = cw + "x"
             goNext(dicName, numberOfQuiz, cw, engs, answers, corrects)
         }
 
         val btnChoice3 = binding.btnChoice3
-        if(ans == 2) btnChoice3.text = transformViewModel.q.value?.second
-        else btnChoice3.text = ds[java.util.Random().nextInt(ds.size)].second
-        btnChoice3.setOnClickListener {
-            answers = answers + btnChoice3.text + "&"
-            if(btnChoice3.text.equals(transformViewModel.q.value?.second)) cw = cw + "o"
+        val text3 = binding.text3
+        if(ans == 2) text3.text = transformViewModel.q.value?.second
+        else text3.text = ds[java.util.Random().nextInt(ds.size)].second
+        text3.setOnClickListener {
+            answers = answers + text3.text + "&"
+            if(text3.text.equals(transformViewModel.q.value?.second)) cw = cw + "o"
             else cw = cw + "x"
             goNext(dicName, numberOfQuiz, cw, engs, answers, corrects)
         }
