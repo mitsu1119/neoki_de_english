@@ -23,7 +23,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.github.mitsu1119.neoki_de_english.R
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentLocalDictionaryBinding
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentTitleBinding
-import io.github.mitsu1119.neoki_de_english.databinding.ItemTransformBinding
+import io.github.mitsu1119.neoki_de_english.databinding.ItemDicBinding
 import io.github.mitsu1119.neoki_de_english.dictionary.DicSet
 import io.github.mitsu1119.neoki_de_english.ui.home.HomeFragment
 import io.github.mitsu1119.neoki_de_english.ui.title.TitleViewModel
@@ -131,7 +131,7 @@ class LocalDictionaryFragment: Fragment() {
         }) {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LocalDicViewHolder {
-            val binding = ItemTransformBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            val binding = ItemDicBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             return LocalDicViewHolder(binding)
         }
 
@@ -149,7 +149,7 @@ class LocalDictionaryFragment: Fragment() {
         }
     }
 
-    class LocalDicViewHolder(binding: ItemTransformBinding) :
+    class LocalDicViewHolder(binding: ItemDicBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         val textView: TextView = binding.textViewItemTransform

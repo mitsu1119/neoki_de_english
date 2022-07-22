@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/drawable/make.xml" value="0.1865" />
+        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/drawable/make5.xml" value="0.1865" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout-w1240dp/app_bar_main.xml" value="0.20340136054421767" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout-w1240dp/content_main.xml" value="0.24761904761904763" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout-w600dp/app_bar_main.xml" value="0.2693693693693694" />
@@ -41,6 +43,7 @@
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/item_home.xml" value="0.14375" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/item_transform.xml" value="0.25" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/item_words.xml" value="0.14375" />
+        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/mydiccell.xml" value="0.25" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/nav_header_main.xml" value="0.14375" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/menu/bottom_navigation.xml" value="0.16197916666666667" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/menu/navigation_drawer.xml" value="0.16197916666666667" />

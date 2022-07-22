@@ -26,7 +26,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import io.github.mitsu1119.neoki_de_english.R
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentWordsBinding
-import io.github.mitsu1119.neoki_de_english.databinding.ItemTransformBinding
 import io.github.mitsu1119.neoki_de_english.databinding.ItemWordsBinding
 import io.github.mitsu1119.neoki_de_english.dictionary.DicSet
 import org.intellij.lang.annotations.JdkConstants

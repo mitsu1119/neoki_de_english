@@ -8,7 +8,7 @@
     tools:layout_editor_absoluteX="-2dp">
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/text_view_item_transform"
         android:layout_width="match_parent"
         android:layout_height="107dp"
         android:fontFamily="@font/galindo"
@@ -18,7 +18,7 @@
         android:textStyle="bold" />
 
     <ImageButton
-        android:id="@+id/del"
+        android:id="@+id/btnRemove"
         android:layout_width="100dp"
         android:layout_height="48dp"
         android:layout_marginTop="4dp"
