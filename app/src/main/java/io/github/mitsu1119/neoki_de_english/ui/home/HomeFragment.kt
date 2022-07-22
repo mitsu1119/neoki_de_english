@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.github.mitsu1119.neoki_de_english.alarm.AlarmReceiver
 import io.github.mitsu1119.neoki_de_english.alarm.AlarmSet
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentHomeBinding
-import io.github.mitsu1119.neoki_de_english.databinding.ItemHomeBinding
+import io.github.mitsu1119.neoki_de_english.databinding.ItemAlarmBinding
 import io.github.mitsu1119.neoki_de_english.ui.create_alarm.CreateAlarmFragment
 import io.github.mitsu1119.neoki_de_english.ui.words.WordsFragment
 import java.io.File
@@ -130,7 +130,7 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         }) {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransformViewHolder {
-            val binding = ItemHomeBinding.inflate(LayoutInflater.from(parent.context))
+            val binding = ItemAlarmBinding.inflate(LayoutInflater.from(parent.context))
             return TransformViewHolder(binding)
         }
 
@@ -148,7 +148,7 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         }
     }
 
-    class TransformViewHolder(binding: ItemHomeBinding) :
+    class TransformViewHolder(binding: ItemAlarmBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         val textView: TextView = binding.textViewItemTransform
