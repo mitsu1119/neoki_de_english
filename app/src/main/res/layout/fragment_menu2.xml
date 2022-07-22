@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/back"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:rotation="180"
@@ -34,17 +34,17 @@
         android:id="@+id/imageViewbig"
         android:layout_width="300dp"
         android:layout_height="206dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="36dp"
         android:src="@drawable/make2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/under" />
 
     <TextView
         android:id="@+id/text_en"
         android:layout_width="129dp"
         android:layout_height="43dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="36dp"
         android:fontFamily="@font/galindo"
         android:shadowColor="#000000"
         android:shadowDx="3"
@@ -56,13 +56,30 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title4" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewbig" />
+
+    <TextView
+        android:id="@+id/text_endis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/galindo"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="3"
+        android:text="(English)"
+        android:textAlignment="center"
+        android:textColor="#D3FFFFFF"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_en" />
 
     <EditText
         android:id="@+id/input1"
         android:layout_width="236dp"
         android:layout_height="57dp"
-        android:layout_marginTop="16dp"
         android:ems="10"
         android:fontFamily="@font/galindo"
         android:inputType="textPersonName"
@@ -70,16 +87,16 @@
         android:shadowDx="3"
         android:shadowDy="3"
         android:shadowRadius="3"
-        android:text="English"
+        android:text=""
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/input2"
-        app:layout_constraintTop_toBottomOf="@+id/text_en" />
+        app:layout_constraintTop_toBottomOf="@+id/text_endis" />
 
     <ImageView
         android:id="@+id/imageViewunder"
         android:layout_width="300dp"
         android:layout_height="206dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="52dp"
         android:src="@drawable/make3"
         app:layout_constraintStart_toStartOf="@+id/imageViewbig"
@@ -89,7 +106,6 @@
         android:id="@+id/input2"
         android:layout_width="229dp"
         android:layout_height="52dp"
-        android:layout_marginTop="20dp"
         android:ems="10"
         android:fontFamily="@font/galindo"
         android:inputType="textPersonName"
@@ -97,18 +113,16 @@
         android:shadowDx="3"
         android:shadowDy="3"
         android:shadowRadius="3"
-        android:text="Japanese"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_jp" />
+        app:layout_constraintTop_toBottomOf="@+id/text_jpdis" />
 
     <TextView
         android:id="@+id/text_jp"
         android:layout_width="134dp"
         android:layout_height="44dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="36dp"
         android:fontFamily="@font/galindo"
         android:shadowColor="#000000"
         android:shadowDx="3"
@@ -119,7 +133,25 @@
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/text_en"
-        app:layout_constraintTop_toBottomOf="@+id/input1" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewunder" />
+
+    <TextView
+        android:id="@+id/text_jpdis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/galindo"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="3"
+        android:text="(Japanese)"
+        android:textAlignment="center"
+        android:textColor="#D3FFFFFF"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_jp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/registering"
@@ -128,7 +160,7 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:contentDescription="addbutton"
-        android:src="@drawable/ic_baseline_add_24dp"
+        android:src="@drawable/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.954"

@@ -3,8 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/drawable/make.xml" value="0.1865" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/drawable/make5.xml" value="0.1865" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout-w1240dp/app_bar_main.xml" value="0.20340136054421767" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout-w1240dp/content_main.xml" value="0.24761904761904763" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout-w600dp/app_bar_main.xml" value="0.2693693693693694" />
@@ -12,42 +10,15 @@
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout-w600dp/fragment_home.xml" value="0.3279279279279279" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout-w600dp/fragment_transform.xml" value="0.2" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout-w600dp/item_transform.xml" value="0.28854166666666664" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/activity_main.xml" value="0.26927083333333335" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/app_bar_main.xml" value="0.15572916666666667" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/content_main.xml" value="0.25" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/dialog_main.xml" value="0.14322916666666666" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/dialog_word.xml" value="0.14375" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_alarmlist.xml" value="0.14375" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_answer.xml" value="0.14375" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_create_alarm.xml" value="0.14375" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_di.xml" value="0.14375" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_dictionary.xml" value="0.14375" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_download.xml" value="0.14375" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_home.xml" value="0.25" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_local_dictionary.xml" value="0.25" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_makealarm.xml" value="0.33" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_menu2.xml" value="0.15572916666666667" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_menu4.xml" value="0.14375" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_neew.xml" value="0.14375" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_quiz.xml" value="0.25" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_reflow.xml" value="0.26927083333333335" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_result.xml" value="0.14375" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_settings.xml" value="0.26927083333333335" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_slideshow.xml" value="0.26927083333333335" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_title.xml" value="0.14375" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_transform.xml" value="0.26927083333333335" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_upload.xml" value="0.14375" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_wordlist.xml" value="0.14375" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragment_words.xml" value="0.25" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/fragmet_alarm.xml" value="0.14375" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/item_alarm.xml" value="0.26927083333333335" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/item_home.xml" value="0.14375" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/item_transform.xml" value="0.25" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/item_words.xml" value="0.14375" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/mydiccell.xml" value="0.25" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/mytimecell.xml" value="0.25" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/mywordcell.xml" value="0.26927083333333335" />
-        <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/layout/nav_header_main.xml" value="0.14375" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/menu/bottom_navigation.xml" value="0.16197916666666667" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/menu/navigation_drawer.xml" value="0.16197916666666667" />
         <entry key="..\:/Users/hachi/source/repos/neoki_de_english/app/src/main/res/menu/overflow.xml" value="0.16197916666666667" />
@@ -58,9 +29,12 @@
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/cloud.xml" value="0.2455" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/down.xml" value="0.328" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/download-48px.xml" value="0.329" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/goup.xml" value="0.277" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/ic_baseline_add_24dp.xml" value="0.32" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/ic_camera_black_24dp.xml" value="0.28" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/ic_gallery_black_24dp.xml" value="0.1705" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/ic_launcher_background.xml" value="0.278" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/ic_slideshow_black_24dp.xml" value="0.26" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/make.xml" value="0.1695" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/make2.xml" value="0.2425" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/make3.xml" value="0.328" />
@@ -69,6 +43,9 @@
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/mycell.xml" value="0.2455" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/mydiccell.xml" value="0.279" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/mywordcell.xml" value="0.2575" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/north-48px.xml" value="0.278" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/save-48px.xml" value="0.278" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/save.xml" value="0.278" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/shape_sample.xml" value="0.269" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/side_nav_bar.xml" value="0.1705" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/drawable/text_row_item.xml" value="0.2425" />
@@ -80,31 +57,44 @@
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout-w1240dp/activity_main.xml" value="0.20983935742971888" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout-w1240dp/fragment_menu3.xml" value="0.1" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout-w600dp/activity_create_alarm.xml" value="0.27645502645502645" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout-w600dp/activity_main.xml" value="0.27645502645502645" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout-w600dp/app_bar_main.xml" value="0.20149911816578484" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout-w600dp/content_main.xml" value="0.2037037037037037" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout-w600dp/fragment_home.xml" value="0.26322751322751325" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/activity_main.xml" value="0.2545289855072464" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/app_bar_main.xml" value="0.23802083333333332" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/content_main.xml" value="0.240625" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/dialog_main.xml" value="0.2734375" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/dialog_word.xml" value="0.276268115942029" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_aa.xml" value="0.3088768115942029" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_alarm.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_alarmlist.xml" value="0.2520833333333333" />
-        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_answer.xml" value="0.13070539419087138" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_answer.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_create_alarm.xml" value="0.48984375" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_di.xml" value="0.2520833333333333" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_diclist.xml" value="0.3255208333333333" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_dictionary.xml" value="0.4104769351055512" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_download.xml" value="0.2734375" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_home.xml" value="0.3088768115942029" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_makeal.xml" value="0.3088768115942029" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_makealarm.xml" value="0.39479166666666665" />
-        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_menu2.xml" value="0.3617269544924154" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_menu2.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_menu3.xml" value="0.3617269544924154" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_menu4.xml" value="0.1" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_neew.xml" value="0.22" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_quest.xml" value="0.23384615384615384" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_quiz.xml" value="0.276268115942029" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_result.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_settings.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_start.xml" value="0.22" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_title.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_upload.xml" value="0.6666666666666666" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_wo.xml" value="0.2520833333333333" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_wordlist.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragment_words.xml" value="0.6" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/fragmet_alarm.xml" value="0.22" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/item_alarm.xml" value="0.25" />
+        <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/item_words.xml" value="0.2734375" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/mag.xml" value="0.3088768115942029" />
         <entry key="..\:/Users/nanbu/AndroidStudioProjects/neoki_de_english/app/src/main/res/layout/nav_header_main.xml" value="0.6666666666666666" />
       </map>

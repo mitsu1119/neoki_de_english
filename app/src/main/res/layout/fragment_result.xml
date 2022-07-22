@@ -48,6 +48,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="625dp"
         android:orientation="vertical"
@@ -151,6 +152,7 @@
                     android:layout_height="wrap_content"
                     android:text="TextView"
                     android:textSize="4dp" />
+
                 <ImageView
                     android:id="@+id/middle1"
                     android:layout_width="match_parent"
@@ -354,14 +356,31 @@
 
     </LinearLayout>
 
-    <Button
+    <ImageButton
         android:id="@+id/btnToTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="98dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="To Title"
+        android:background="#0000"
+        android:contentDescription="dicbutton"
+        android:src="@drawable/make2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/texttotitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/galindo"
+        android:text="To Title"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btnToTitle"
+        app:layout_constraintEnd_toEndOf="@+id/btnToTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
