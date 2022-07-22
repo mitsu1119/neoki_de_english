@@ -96,7 +96,7 @@ class QuizFragment: Fragment() {
         val text2 = binding.text2
         if(ans == 1) text2.text = transformViewModel.q.value?.second
         else text2.text = ds[java.util.Random().nextInt(ds.size)].second
-        text2.setOnClickListener {
+        btnChoice2.setOnClickListener {
             answers = answers + text2.text + "&"
             if(text2.text.equals(transformViewModel.q.value?.second)) cw = cw + "o"
             else cw = cw + "x"
@@ -107,7 +107,7 @@ class QuizFragment: Fragment() {
         val text3 = binding.text3
         if(ans == 2) text3.text = transformViewModel.q.value?.second
         else text3.text = ds[java.util.Random().nextInt(ds.size)].second
-        text3.setOnClickListener {
+        btnChoice3.setOnClickListener {
             answers = answers + text3.text + "&"
             if(text3.text.equals(transformViewModel.q.value?.second)) cw = cw + "o"
             else cw = cw + "x"
