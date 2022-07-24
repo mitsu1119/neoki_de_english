@@ -2,6 +2,7 @@ package io.github.mitsu1119.neoki_de_english.ui.download
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,10 @@ import androidx.lifecycle.ViewModelProvider
 import io.github.mitsu1119.neoki_de_english.MainActivity
 import io.github.mitsu1119.neoki_de_english.conn.Server
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentDownloadBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class DownloadFragment: Fragment() {
     private var _binding: FragmentDownloadBinding? = null
@@ -27,8 +32,8 @@ class DownloadFragment: Fragment() {
         val root: View = binding.root
 
         val server = Server(MainActivity().coroutineContext)
-
-        server.getWBlist()
+        val remoteDics = server.getWBlist()
+            Log.v("yey", "remoteDics: $remoteDics")
 
         return root
     }

@@ -6,9 +6,12 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.*
 import kotlinx.coroutines.withContext
-import okhttp3.HttpUrl
-import okhttp3.OkHttpClient
-import okhttp3.Request
+import okhttp3.*
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody.Companion.toRequestBody
+import java.io.BufferedReader
+import java.io.File
+import java.io.IOException
 import kotlin.coroutines.CoroutineContext
 
 class Server(val coroutineContext: CoroutineContext) {
@@ -17,13 +20,12 @@ class Server(val coroutineContext: CoroutineContext) {
     //単語帳一覧取得
     fun getWBlist(): String {
         var str:String = ""
-        CoroutineScope(coroutineContext).launch {
+        runBlocking {
             val url = HttpUrl.Builder()
                 .scheme("https")
                 .host("kudo1122.pythonanywhere.com")
                 .addPathSegment("Wordbook")
                 .addPathSegment("getList")
-                //.addQueryParameter("name","test2")
                 .build()
             val request = Request.Builder()
                 .url(url)
@@ -35,9 +37,8 @@ class Server(val coroutineContext: CoroutineContext) {
                 }
             }
 
-            Log.v("yey", "yey")
             str = result.toString()
-            Log.v("yey", "tangochou: $str")
+            Log.v("yey", str)
 
             /*
             MainActivity().runOnUiThread {
@@ -49,4 +50,47 @@ class Server(val coroutineContext: CoroutineContext) {
         }
         return str
     }
+
+
+    //単語帳をアップロードする関数
+    fun uploadWB(name:String, filesDir: File){
+        var file = "dics/${name}/words.txt"
+        val readFile = File(filesDir, file)
+        if(!readFile.exists()){
+            Log.v("yey", "${name}.txt がみつかりません")
+        } else {
+            var contents = readFile.bufferedReader().use(BufferedReader::readText)
+            val url = HttpUrl.Builder()
+                .scheme("https")
+                .host("kudo1122.pythonanywhere.com")
+                .addPathSegment("Wordbook")
+                .addPathSegment("upload")
+                .build()
+
+            val JSON_MEDIA = "application/json; charset=utf-8".toMediaType()
+            val sendDataJson = "{\"name\":\"${name}\",\"contents\":\"${contents}\"}"
+            val request = Request.Builder()
+                .url(url)
+                .post(sendDataJson.toRequestBody(JSON_MEDIA))
+                .build()
+            okHttpClient.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    MainActivity().runOnUiThread {
+                        Log.v("yey", "error: $e")
+                        // binding.progressBar.hide()
+                    }
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val result = if (response.isSuccessful) {
+                        response.body?.string()
+                    } else {
+                        "failed/ code: ${response.code} / message: ${response.message}"
+                    }
+                }
+
+            })
+        }
+    }
+
 }

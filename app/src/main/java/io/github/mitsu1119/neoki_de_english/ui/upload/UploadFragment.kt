@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import io.github.mitsu1119.neoki_de_english.MainActivity
+import io.github.mitsu1119.neoki_de_english.conn.Server
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentUploadBinding
 import io.github.mitsu1119.neoki_de_english.ui.dictionary.DictionaryViewModel
 import io.github.mitsu1119.neoki_de_english.ui.local_dictionary.LocalDictionaryViewModel
@@ -30,6 +32,8 @@ class UploadFragment: Fragment() {
         _binding = FragmentUploadBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        val server = Server(MainActivity().coroutineContext)
+
         internalDir = requireContext().filesDir
 
         val dicDir = File(internalDir.absolutePath + "/dics")
@@ -41,8 +45,10 @@ class UploadFragment: Fragment() {
         val spnDic = binding.spnDic
         spnDic.adapter = adapter
 
-        val btnAlarm = binding.btnUpload
-        btnAlarm.setOnClickListener { view ->
+        val btnUpload = binding.btnUpload
+        btnUpload.setOnClickListener { view ->
+            server.uploadWB(spnDic.selectedItem as String, requireContext().filesDir)
+            Log.v("yey", "uploaded ${spnDic.selectedItem as String}")
         }
 
         return root
