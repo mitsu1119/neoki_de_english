@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    tools:layout_editor_absoluteX="-2dp">
+
+    <TextView
+        android:id="@+id/text_view_item_transform"
+        android:layout_width="match_parent"
+        android:layout_height="107dp"
+        android:fontFamily="@font/galindo"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="80dp"
+        android:textStyle="bold" />
+
+</LinearLayout>
