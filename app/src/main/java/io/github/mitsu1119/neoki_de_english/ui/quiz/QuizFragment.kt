@@ -116,7 +116,7 @@ class QuizFragment: Fragment() {
 
         // 音を鳴らす
         requireContext().stopService(Intent(requireContext().applicationContext, MPService::class.java))
-        val audioFileName = requireContext().filesDir.absolutePath + "/dics/" + dicName + "/" + eng + ".wav"
+        val audioFileName = requireContext().filesDir.absolutePath + "/dics/" + dicName + "/" + eng + ".mp3"
         mp = MediaPlayer().apply {
             setDataSource(audioFileName)
             isLooping = true

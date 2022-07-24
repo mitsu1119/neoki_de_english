@@ -133,7 +133,6 @@ class Server(val coroutineContext: CoroutineContext) {
                     it.write(str)
                 }
             }
-
         })
     }
 }

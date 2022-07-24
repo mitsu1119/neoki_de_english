@@ -29,7 +29,7 @@ class AlarmReceiver: BroadcastReceiver() {
         val word = ds[java.util.Random().nextInt(ds.size)]
         val eng = word.first
         val jp = word.second
-        val audioFileName = context.filesDir.absolutePath + "/dics/" + dic + "/" + eng + ".wav"
+        val audioFileName = context.filesDir.absolutePath + "/dics/" + dic + "/" + eng + ".mp3"
 
         // アラーム再生用のサービスを開始
         val serviceIntent = Intent(context, MPService::class.java)

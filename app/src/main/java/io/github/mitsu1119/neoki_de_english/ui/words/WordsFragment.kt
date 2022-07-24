@@ -81,7 +81,7 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
 
             // OKボタン
             nameInputDialog.setPositiveButton("OK") { dialog, _ ->
-                speak(editEnglish.text.toString(), internalDir.absolutePath + "/dics/" + dicName + "/" + editEnglish.text.toString() + ".wav")
+                speak(editEnglish.text.toString(), internalDir.absolutePath + "/dics/" + dicName + "/" + editEnglish.text.toString() + ".mp3")
                 DicSet.recording(internalDir, "/dics/" + dicName, editEnglish.text.toString(), editJapanese.text.toString())
                 transformViewModel.setWord(Word(editEnglish.text.toString(), false))
                 dialog.dismiss()
