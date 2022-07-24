@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import io.github.mitsu1119.neoki_de_english.MainActivity
+import io.github.mitsu1119.neoki_de_english.conn.Server
 import io.github.mitsu1119.neoki_de_english.databinding.FragmentDownloadBinding
 
 class DownloadFragment: Fragment() {
@@ -23,6 +25,10 @@ class DownloadFragment: Fragment() {
         val transformViewModel = ViewModelProvider(this).get(DownloadViewModel::class.java)
         _binding = FragmentDownloadBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        val server = Server(MainActivity().coroutineContext)
+
+        server.getWBlist()
 
         return root
     }
