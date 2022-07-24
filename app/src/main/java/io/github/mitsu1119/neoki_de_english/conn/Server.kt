@@ -93,4 +93,47 @@ class Server(val coroutineContext: CoroutineContext) {
         }
     }
 
+    //単語帳をダウンロードする関数
+    fun downloadWB(WordbookName:String, filesDir: File){
+        val url = HttpUrl.Builder()
+            .scheme("https")
+            .host("kudo1122.pythonanywhere.com")
+            .addPathSegment("Wordbook")
+            .addPathSegment("download")
+            .build()
+
+        val JSON_MEDIA = "application/json; charset=utf-8".toMediaType()
+        val sendDataJson = "{\"name\":\"${WordbookName}\"}"
+        val request = Request.Builder()
+            .url(url)
+            .post(sendDataJson.toRequestBody(JSON_MEDIA))
+            .build()
+        Log.v("WB","body:"+request.body.toString())
+        okHttpClient.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                MainActivity().runOnUiThread {
+                    Log.v("yey", "error: $e")
+                    // binding.progressBar.hide()
+                }
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                val result = if (response.isSuccessful) {
+                    response.body?.string()
+                } else {
+                    "failed/ code: ${response.code} / message: ${response.message}"
+                }
+
+                //ファイルへ保存
+                val dir = File(filesDir, "dics/$WordbookName")
+                if(!dir.exists()) dir.mkdir()
+
+                val str = result
+                File(filesDir, "dics/$WordbookName/words.txt").writer().use {
+                    it.write(str)
+                }
+            }
+
+        })
+    }
 }

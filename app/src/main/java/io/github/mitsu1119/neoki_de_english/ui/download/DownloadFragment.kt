@@ -15,10 +15,12 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import java.io.File
 
 class DownloadFragment: Fragment() {
     private var _binding: FragmentDownloadBinding? = null
 
+    private lateinit var internalDir: File
     private val binding get() = _binding!!
 
     @SuppressLint("UnspecifiedImmutableFlag")
@@ -30,10 +32,11 @@ class DownloadFragment: Fragment() {
         val transformViewModel = ViewModelProvider(this).get(DownloadViewModel::class.java)
         _binding = FragmentDownloadBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        internalDir = requireContext().filesDir
 
         val server = Server(MainActivity().coroutineContext)
         val remoteDics = server.getWBlist()
-            Log.v("yey", "remoteDics: $remoteDics")
+        server.downloadWB("dic1", internalDir)
 
         return root
     }
