@@ -67,7 +67,6 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
 
     override fun onDialogPositiveClick(dialog: DialogFragment, hour:Int, minute:Int, dayOfWeeks: Array<Boolean>, dic: String) {
         Log.v("yey", "$hour:$minute")
-        Log.v("yey", dayOfWeeks.contentToString())
         Log.v("yey", dic)
 
         // アラーム追加
@@ -93,9 +92,10 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 1000, pending)
         Log.v("yey", "Set Alarm")
 
-        // TODO("曜日でリピート")
-
-        val al = AlarmSet.create(internalDir, hour, minute)
+        var dow = ""
+        dayOfWeeks.forEach { if(it) dow += "o" else dow += "x" }
+        Log.v("m2_setalarm", "dow: $dow")
+        val al = AlarmSet.create(internalDir, hour, minute, dow)
         transformViewModel.addAlarm(al)
     }
 

@@ -21,15 +21,19 @@ class AlarmSet {
     var number: Int
         private set
 
-    constructor(hour: Int, minute: Int, number: Int) {
+    var dow: String
+        private set
+
+    constructor(hour: Int, minute: Int, number: Int, dow: String) {
         this.date = LocalDate.now()
         this.time = LocalTime.now()
         this.time = this.time.withHour(hour).withMinute(minute)
+        this.dow = dow
         this.number = number
     }
 
     companion object {
-        fun create(internalDir: File, hour: Int, minute: Int): AlarmSet {
+        fun create(internalDir: File, hour: Int, minute: Int, dow: String): AlarmSet {
             // 新規作成
             val new = internalDir.absolutePath + "/alarms/"
 
@@ -44,14 +48,14 @@ class AlarmSet {
 
             Files.createFile(Paths.get(new + alarmNum.toString() + ".txt"))
 
-            recording(new + alarmNum.toString() + ".txt", hour, minute)
-            return AlarmSet(hour, minute, alarmNum)
+            recording(new + alarmNum.toString() + ".txt", hour, minute, dow)
+            return AlarmSet(hour, minute, alarmNum, dow)
         }
 
-        private fun recording(fileName: String, hour: Int, minute: Int) {
+        private fun recording(fileName: String, hour: Int, minute: Int, dow: String) {
             val f = File(fileName)
             val fw = FileWriter(f, true)
-            fw.write("$hour,$minute")
+            fw.write("$hour,$minute,$dow")
             fw.close()
         }
 
@@ -62,7 +66,8 @@ class AlarmSet {
 
             val hour = st.split(",")[0].toInt()
             val minute = st.split(",")[1].toInt()
-            val ret = AlarmSet(hour, minute, number)
+            val dow = st.split(",")[2]
+            val ret = AlarmSet(hour, minute, number, dow)
 
             return ret
         }
