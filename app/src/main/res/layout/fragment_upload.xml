@@ -94,7 +94,7 @@
         android:id="@+id/imageView2"
         android:layout_width="311dp"
         android:layout_height="253dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/under"
