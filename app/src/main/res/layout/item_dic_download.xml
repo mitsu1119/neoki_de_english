@@ -4,6 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
     app:cardCornerRadius="6dp"
     app:cardElevation="6dp"
     app:contentPadding="8dp">
@@ -19,11 +23,11 @@
     <TextView
         android:id="@+id/text_view_item_transform"
         android:layout_width="match_parent"
-        android:layout_height="107dp"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/galindo"
         android:text="TextView"
         android:textAlignment="center"
-        android:textSize="80dp"
+        android:textSize="40sp"
         android:textStyle="bold" />
 
 </LinearLayout>

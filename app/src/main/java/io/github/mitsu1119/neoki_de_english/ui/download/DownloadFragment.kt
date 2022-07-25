@@ -73,10 +73,12 @@ class DownloadFragment: Fragment(), TextToSpeech.OnInitListener {
             }
         }
 
-
+        /*
         binding.button.setOnClickListener {
             createDicAudio("dic1")
         }
+
+         */
 
         return root
     }
