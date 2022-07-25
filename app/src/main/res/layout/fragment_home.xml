@@ -14,13 +14,7 @@
         android:layout_centerVertical="true"
         android:rotation="180"
         android:scaleType="centerCrop"
-        android:src="@drawable/pastel"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerview_transform"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        android:src="@drawable/pastel" />
 
     <TextView
         android:id="@+id/text_settings"
@@ -53,15 +47,16 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_transform"
-        android:layout_width="404dp"
-        android:layout_height="604dp"
-        android:layout_marginTop="124dp"
-        android:layout_marginEnd="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:scrollbars="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layoutManager="LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/under"
         tools:context=".ui.home.HomeFragment" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
