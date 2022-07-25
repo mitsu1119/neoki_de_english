@@ -53,23 +53,8 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         val root: View = binding.root
 
         internalDir = requireContext().filesDir
-        transformViewModel.loadAlarms(internalDir)
 
-        val recyclerView = binding.recyclerviewTransform
-        val adapter = TransformAdapter()
-        recyclerView.adapter = adapter
-
-        adapter.btnRemoveClickListener =
-            object: TransformAdapter.OnRemoveClickListener {
-                override fun onRemoveClick(position: Int): Boolean {
-                    Log.v("yey", "Remove: $position")
-                    return true
-                }
-            }
-
-        transformViewModel.texts.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
-        }
+        updateAdapter()
 
         val btnAdd = binding.btnAdd
         btnAdd.setOnClickListener { view ->
@@ -119,6 +104,29 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         _binding = null
     }
 
+    fun updateAdapter() {
+        transformViewModel.loadAlarms(internalDir)
+
+        val recyclerView = binding.recyclerviewTransform
+        val adapter = TransformAdapter()
+        recyclerView.adapter = adapter
+
+        transformViewModel.texts.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
+
+
+        adapter.btnRemoveClickListener =
+            object : TransformAdapter.OnRemoveClickListener {
+                override fun onRemoveClick(position: Int): Boolean {
+                    Log.v("m2_alarm", "Remove: $position")
+                    transformViewModel.removeAlarm(position, internalDir)
+                    updateAdapter()
+                    return true
+                }
+            }
+    }
+
     class TransformAdapter :
         ListAdapter<String, TransformViewHolder>(object : DiffUtil.ItemCallback<String>() {
 
@@ -153,6 +161,5 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
 
         val textView: TextView = binding.textViewItemTransform
         val btnRemove = binding.btnRemove
-
     }
 }

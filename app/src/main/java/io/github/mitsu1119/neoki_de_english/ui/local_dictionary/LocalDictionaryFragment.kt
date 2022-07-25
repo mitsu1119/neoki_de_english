@@ -48,9 +48,9 @@ class LocalDictionaryFragment: Fragment() {
         _binding = FragmentLocalDictionaryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        internalDir = requireContext().filesDir
         updateAdapter()
 
-        internalDir = requireContext().filesDir
         val dicDir = File(internalDir.absolutePath + "/dics")
         transformViewModel.loadDicNames(dicDir)
 

@@ -24,6 +24,13 @@ class HomeViewModel : ViewModel() {
         _alarms.value?.add(alarm)
         applyAlarms()
     }
+    fun removeAlarm(position: Int, internalDir: File) {
+        val f = File(internalDir, "alarms/${position}.txt")
+        if(f.exists()) {
+            f.deleteRecursively()
+            _alarms.value?.removeAt(position)
+        }
+    }
     val alarms: LiveData<MutableList<AlarmSet>> = _alarms
 
     private val _texts = MutableLiveData<List<String>>().apply {
