@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-64dp">
 
     <ImageView
         android:id="@+id/back"
@@ -38,7 +40,7 @@
         android:id="@+id/btnChoice1"
         android:layout_width="335dp"
         android:layout_height="69dp"
-        android:layout_marginTop="460dp"
+        android:layout_marginTop="396dp"
         android:background="#0000"
         android:contentDescription="dicbutton"
         android:src="@drawable/make2"
@@ -50,7 +52,7 @@
         android:id="@+id/btnChoice2"
         android:layout_width="335dp"
         android:layout_height="64dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:background="#0000"
         android:contentDescription="dicbutton"
         android:src="@drawable/make2"
@@ -62,7 +64,7 @@
         android:id="@+id/btnChoice3"
         android:layout_width="335dp"
         android:layout_height="65dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:background="#0000"
         android:contentDescription="dicbutton"
         android:src="@drawable/make2"
@@ -74,7 +76,7 @@
         android:id="@+id/tvEng"
         android:layout_width="176dp"
         android:layout_height="51dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="36dp"
         android:fontFamily="@font/galindo"
         android:shadowColor="#000000"
         android:shadowDx="3"
@@ -95,25 +97,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/btnChoice1"
+        app:layout_constraintEnd_toEndOf="@+id/btnChoice1"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="@+id/btnChoice1"
-        app:layout_constraintTop_toTopOf="@+id/btnChoice1" />
+        app:layout_constraintTop_toTopOf="@+id/btnChoice1"
+        app:layout_constraintVertical_bias="0.517" />
 
     <TextView
         android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/btnChoice2"
+        app:layout_constraintEnd_toEndOf="@+id/btnChoice2"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="@+id/btnChoice2"
-        app:layout_constraintTop_toTopOf="@+id/btnChoice2" />
+        app:layout_constraintTop_toTopOf="@+id/btnChoice2"
+        app:layout_constraintVertical_bias="0.666" />
 
     <TextView
         android:id="@+id/text3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/btnChoice3"
+        app:layout_constraintEnd_toEndOf="@+id/btnChoice3"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="@+id/btnChoice3"
-        app:layout_constraintTop_toTopOf="@+id/btnChoice3" />
+        app:layout_constraintTop_toTopOf="@+id/btnChoice3"
+        app:layout_constraintVertical_bias="0.48" />
 </androidx.constraintlayout.widget.ConstraintLayout>
