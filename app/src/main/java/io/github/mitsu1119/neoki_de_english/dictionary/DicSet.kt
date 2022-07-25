@@ -34,8 +34,8 @@ class DicSet {
         fun recording(internalDir: File, dicName: String, english: String, japanese: String) {
             val f = File(internalDir.absolutePath + "/" + dicName + "/words.txt")
             val fw = FileWriter(f, true)
-            fw.write(english + "\n")
             fw.write(japanese + "\n")
+            fw.write(english + "\n")
             fw.close()
         }
 
@@ -46,7 +46,7 @@ class DicSet {
             BufferedReader(FileReader(f)).use { br ->
                 var line: String?
                 while(br.readLine().also { line = it } != null) {
-                    if(buf == 0) ret.add(line!!)
+                    if(buf == 1) ret.add(line!!)
                     buf = buf xor 1
                 }
             }
@@ -59,10 +59,10 @@ class DicSet {
             var ret = arrayListOf<Pair<String, String>>()
             BufferedReader(FileReader(f)).use { br ->
                 var line: String?
-                var eng = ""
+                var jp = ""
                 while(br.readLine().also { line = it } != null) {
-                    if(buf == 0)  eng = line!!
-                    else ret.add(Pair(eng, line!!))
+                    if(buf == 0)  jp = line!!
+                    else ret.add(Pair(line!!, jp))
                     buf = buf xor 1
                 }
             }

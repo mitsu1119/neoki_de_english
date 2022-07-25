@@ -68,32 +68,12 @@ class DownloadFragment: Fragment(), TextToSpeech.OnInitListener {
         adapter.itemClickListener = object: DownloadAdapter.OnItemClickListener {
             override fun onItemClick(holder: DownloadViewHolder): Boolean {
                 Log.v("m2_download", "download... ${holder.textView.text}")
-                server.downloadWB(holder.textView.text.toString(), internalDir)
+                server.downloadWB(holder.textView.text.toString(), internalDir, tts)
                 return true
             }
         }
 
-        /*
-        binding.button.setOnClickListener {
-            createDicAudio("dic1")
-        }
-
-         */
-
         return root
-    }
-
-    private fun createDicAudio(dicName: String) {
-        val dir = File(internalDir, "dics/${dicName}")
-        val words = dir.absolutePath + "/words.txt"
-
-        val sc = Scanner(File(words))
-        while (sc.hasNextLine()) {
-            val line = sc.nextLine()
-            Log.v("m2_dic", "generate... ${line}.mp3")
-            speak(line, "${dir.absolutePath}/${line}.mp3")
-            if(sc.hasNextLine()) sc.nextLine()
-        }
     }
 
     override fun onInit(status: Int) {
@@ -101,14 +81,6 @@ class DownloadFragment: Fragment(), TextToSpeech.OnInitListener {
             Log.e("tts", "初期化失敗")
         } else {
             Log.e("tts", "初期化成功")
-        }
-    }
-
-    private fun speak(text: String, out: String) {
-        val of = File(out)
-        if(!of.exists()) {
-            tts?.setLanguage(Locale.ENGLISH)
-            tts?.synthesizeToFile(text, null, of, "WordsID")
         }
     }
 

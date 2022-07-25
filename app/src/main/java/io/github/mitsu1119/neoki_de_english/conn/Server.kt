@@ -1,6 +1,7 @@
 package io.github.mitsu1119.neoki_de_english.conn
 
 import android.os.Build
+import android.speech.tts.TextToSpeech
 import android.util.Log
 import androidx.annotation.RequiresApi
 import io.github.mitsu1119.neoki_de_english.MainActivity
@@ -14,6 +15,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.*
 import java.nio.file.Files
 import java.nio.file.Paths
+import java.util.*
 import kotlin.coroutines.CoroutineContext
 
 class Server(val coroutineContext: CoroutineContext) {
@@ -96,7 +98,7 @@ class Server(val coroutineContext: CoroutineContext) {
     }
 
     //単語帳をダウンロードする関数
-    fun downloadWB(WordbookName:String, filesDir: File){
+    fun downloadWB(WordbookName:String, filesDir: File, tts: TextToSpeech?) {
         val url = HttpUrl.Builder()
             .scheme("https")
             .host("kudo1122.pythonanywhere.com")
@@ -139,8 +141,33 @@ class Server(val coroutineContext: CoroutineContext) {
                     it.write(str)
                 }
                 Log.v("yey", "単語帳 $WordbookName を作成しました")
+
+                Log.v("m2_download", "音声ファイルの生成を行います")
+                createDicAudio(WordbookName, filesDir, tts)
+                Log.v("m2_download", "音声ファイルの生成が終了しました")
             }
         })
+    }
+
+    private fun createDicAudio(dicName: String, internalDir: File, tts: TextToSpeech?) {
+        val dir = File(internalDir, "dics/${dicName}")
+        val words = dir.absolutePath + "/words.txt"
+
+        val sc = Scanner(File(words))
+        while (sc.hasNextLine()) {
+            sc.nextLine()
+            val line = sc.nextLine()
+            Log.v("m2_dic", "generate... ${line}.mp3")
+            speak(line, "${dir.absolutePath}/${line}.mp3", tts)
+        }
+    }
+
+    private fun speak(text: String, out: String, tts: TextToSpeech?) {
+        val of = File(out)
+        if(!of.exists()) {
+            tts?.setLanguage(Locale.ENGLISH)
+            tts?.synthesizeToFile(text, null, of, "WordsID")
+        }
     }
 
     //単語帳を一行ずつ読み取り、ダウンロード指示を出す関数 保存先は"${externalMediaDirs.first()}/${単語帳名}/"
