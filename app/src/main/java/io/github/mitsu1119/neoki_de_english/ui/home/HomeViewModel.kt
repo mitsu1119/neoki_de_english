@@ -35,14 +35,14 @@ class HomeViewModel : ViewModel() {
 
     private val _texts = MutableLiveData<List<String>>().apply {
         value = (0..(_alarms.value!!.size- 1)).mapIndexed { _, i ->
-            if(_alarms.value?.get(i)?.time!!.hour >= 12) "PM " + (_alarms.value?.get(i)!!.time.hour - 12).toString() + ":" + _alarms.value?.get(i)!!.time.minute + "," + _alarms.value?.get(i)!!.dic
-            else "AM " + _alarms.value?.get(i)!!.time.hour.toString() + ":" + _alarms.value?.get(i)!!.time.minute + "," + _alarms.value?.get(i)!!.dic
+            if(_alarms.value?.get(i)?.time!!.hour >= 12) "PM " + (_alarms.value?.get(i)!!.time.hour - 12).toString().padStart(2, '0') + ":" + _alarms.value?.get(i)!!.time.minute.toString().padStart(2, '0') + "," + _alarms.value?.get(i)!!.dic + "," + _alarms.value?.get(i)!!.dow
+            else "AM " + _alarms.value?.get(i)!!.time.hour.toString().padStart(2, '0') + ":" + _alarms.value?.get(i)!!.time.minute.toString().padStart(2, '0') + "," + _alarms.value?.get(i)!!.dic + "," + _alarms.value?.get(i)!!.dow
         }
     }
     private fun applyAlarms() {
         _texts.value = (0..(_alarms.value!!.size - 1)).mapIndexed { _, i ->
-            if(_alarms.value?.get(i)?.time!!.hour >= 12) "PM " + (_alarms.value?.get(i)!!.time.hour - 12).toString() + ":" + _alarms.value?.get(i)!!.time.minute + "," + _alarms.value?.get(i)!!.dic
-            else "AM " + _alarms.value?.get(i)!!.time.hour.toString() + ":" + _alarms.value?.get(i)!!.time.minute + "," + _alarms.value?.get(i)!!.dic
+            if(_alarms.value?.get(i)?.time!!.hour >= 12) "PM " + (_alarms.value?.get(i)!!.time.hour - 12).toString().padStart(2, '0') + ":" + _alarms.value?.get(i)!!.time.minute.toString().padStart(2, '0') + "," + _alarms.value?.get(i)!!.dic + "," + _alarms.value?.get(i)!!.dow
+            else "AM " + _alarms.value?.get(i)!!.time.hour.toString().padStart(2, '0') + ":" + _alarms.value?.get(i)!!.time.minute.toString().padStart(2, '0') + "," + _alarms.value?.get(i)!!.dic + "," + _alarms.value?.get(i)!!.dow
         }
     }
     val texts: LiveData<List<String>> = _texts

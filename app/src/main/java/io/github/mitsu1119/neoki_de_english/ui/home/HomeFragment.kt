@@ -144,8 +144,28 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         }
 
         override fun onBindViewHolder(holder: TransformViewHolder, position: Int) {
-            holder.textView.text = getItem(position).split(",")[0]
-            holder.txDic.text = getItem(position).split(",")[1] + " | "
+            val li = getItem(position).split(",")
+
+            val dow = li[2]
+            var str = ""
+            if(dow.get(0) == 'o') str += "月"
+            else str += "　"
+            if(dow.get(1) == 'o') str += "火"
+            else str += "　"
+            if(dow.get(2) == 'o') str += "水"
+            else str += "　"
+            if(dow.get(3) == 'o') str += "木"
+            else str += "　"
+            if(dow.get(4) == 'o') str += "金"
+            else str += "　"
+            if(dow.get(5) == 'o') str += "土"
+            else str += "　"
+            if(dow.get(6) == 'o') str += "日"
+            else str += "　"
+
+            holder.textView.text = li[0]
+            holder.txDic.text = li[1] + "　$str"
+
             holder.btnRemove.setOnClickListener {
                 btnRemoveClickListener?.onRemoveClick(position)
             }
