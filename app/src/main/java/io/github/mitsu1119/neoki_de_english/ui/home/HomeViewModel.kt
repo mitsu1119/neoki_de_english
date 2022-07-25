@@ -35,14 +35,14 @@ class HomeViewModel : ViewModel() {
 
     private val _texts = MutableLiveData<List<String>>().apply {
         value = (0..(_alarms.value!!.size- 1)).mapIndexed { _, i ->
-            if(_alarms.value?.get(i)?.time!!.hour >= 12) "PM " + (_alarms.value?.get(i)!!.time.hour - 12).toString() + ":" + _alarms.value?.get(i)!!.time.minute
-            else "AM " + _alarms.value?.get(i)!!.time.hour.toString() + ":" + _alarms.value?.get(i)!!.time.minute
+            if(_alarms.value?.get(i)?.time!!.hour >= 12) "PM " + (_alarms.value?.get(i)!!.time.hour - 12).toString() + ":" + _alarms.value?.get(i)!!.time.minute + "," + _alarms.value?.get(i)!!.dic
+            else "AM " + _alarms.value?.get(i)!!.time.hour.toString() + ":" + _alarms.value?.get(i)!!.time.minute + "," + _alarms.value?.get(i)!!.dic
         }
     }
     private fun applyAlarms() {
         _texts.value = (0..(_alarms.value!!.size - 1)).mapIndexed { _, i ->
-            if(_alarms.value?.get(i)?.time!!.hour >= 12) "PM " + (_alarms.value?.get(i)!!.time.hour - 12).toString() + ":" + _alarms.value?.get(i)!!.time.minute
-            else "AM " + _alarms.value?.get(i)!!.time.hour.toString() + ":" + _alarms.value?.get(i)!!.time.minute
+            if(_alarms.value?.get(i)?.time!!.hour >= 12) "PM " + (_alarms.value?.get(i)!!.time.hour - 12).toString() + ":" + _alarms.value?.get(i)!!.time.minute + "," + _alarms.value?.get(i)!!.dic
+            else "AM " + _alarms.value?.get(i)!!.time.hour.toString() + ":" + _alarms.value?.get(i)!!.time.minute + "," + _alarms.value?.get(i)!!.dic
         }
     }
     val texts: LiveData<List<String>> = _texts

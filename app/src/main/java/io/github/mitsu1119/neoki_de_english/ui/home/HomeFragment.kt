@@ -24,6 +24,7 @@ import io.github.mitsu1119.neoki_de_english.databinding.FragmentHomeBinding
 import io.github.mitsu1119.neoki_de_english.databinding.ItemAlarmBinding
 import io.github.mitsu1119.neoki_de_english.ui.create_alarm.CreateAlarmFragment
 import io.github.mitsu1119.neoki_de_english.ui.words.WordsFragment
+import org.w3c.dom.Text
 import java.io.File
 import java.util.*
 
@@ -95,7 +96,7 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         var dow = ""
         dayOfWeeks.forEach { if(it) dow += "o" else dow += "x" }
         Log.v("m2_setalarm", "dow: $dow")
-        val al = AlarmSet.create(internalDir, hour, minute, dow)
+        val al = AlarmSet.create(internalDir, hour, minute, dow, dic)
         transformViewModel.addAlarm(al)
     }
 
@@ -143,7 +144,8 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         }
 
         override fun onBindViewHolder(holder: TransformViewHolder, position: Int) {
-            holder.textView.text = getItem(position)
+            holder.textView.text = getItem(position).split(",")[0]
+            holder.txDic.text = getItem(position).split(",")[1] + " | "
             holder.btnRemove.setOnClickListener {
                 btnRemoveClickListener?.onRemoveClick(position)
             }
@@ -160,6 +162,7 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
         RecyclerView.ViewHolder(binding.root) {
 
         val textView: TextView = binding.textViewItemTransform
+        val txDic: TextView = binding.textDictionary
         val btnRemove = binding.btnRemove
     }
 }
