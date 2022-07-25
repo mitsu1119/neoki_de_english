@@ -19,5 +19,9 @@ class LocalDictionaryViewModel: ViewModel() {
     fun addDicName(name: String) {
         _dicNames.value?.add(name)
     }
+    fun removeDic(internalDir: File, name: String) {
+        DicSet.remove(internalDir, name)
+        _dicNames.value?.remove(name)
+    }
     val dicNames: LiveData<MutableList<String>> = _dicNames
 }

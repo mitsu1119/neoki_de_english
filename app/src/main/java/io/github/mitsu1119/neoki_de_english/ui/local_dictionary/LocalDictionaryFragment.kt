@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
@@ -32,8 +33,8 @@ import kotlin.contracts.contract
 
 class LocalDictionaryFragment: Fragment() {
     private var _binding: FragmentLocalDictionaryBinding? = null
-
     private val binding get() = _binding!!
+    private lateinit var transformViewModel: LocalDictionaryViewModel
 
     private lateinit var internalDir: File
 
@@ -43,24 +44,11 @@ class LocalDictionaryFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val transformViewModel = ViewModelProvider(this).get(LocalDictionaryViewModel::class.java)
+        transformViewModel = ViewModelProvider(this).get(LocalDictionaryViewModel::class.java)
         _binding = FragmentLocalDictionaryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val recyclerView = binding.recyclerView
-        val adapter = LocalDicAdapter()
-        recyclerView.adapter = adapter
-        transformViewModel.dicNames.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
-        }
-
-        adapter.itemClickListener = object: LocalDicAdapter.OnItemClickListener {
-            override fun onItemClick(holder: LocalDicViewHolder): Boolean {
-                val action = LocalDictionaryFragmentDirections.actionToWords(holder.textView.text.toString())
-                findNavController().navigate(action)
-                return true
-            }
-        }
+        updateAdapter()
 
         internalDir = requireContext().filesDir
         val dicDir = File(internalDir.absolutePath + "/dics")
@@ -120,6 +108,31 @@ class LocalDictionaryFragment: Fragment() {
         _binding = null
     }
 
+    private fun updateAdapter() {
+        val recyclerView = binding.recyclerView
+        val adapter = LocalDicAdapter()
+        recyclerView.adapter = adapter
+        transformViewModel.dicNames.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
+
+        adapter.itemClickListener = object: LocalDicAdapter.OnItemClickListener {
+            override fun onItemClick(holder: LocalDicViewHolder): Boolean {
+                val action = LocalDictionaryFragmentDirections.actionToWords(holder.textView.text.toString())
+                findNavController().navigate(action)
+                return true
+            }
+        }
+
+        adapter.btnRemoveClickListener = object: LocalDicAdapter.OnRemoveClickListener {
+            override fun onRemoveClick(holder: LocalDicViewHolder): Boolean {
+                transformViewModel.removeDic(internalDir, holder.textView.text.toString())
+                updateAdapter()
+                return true
+            }
+        }
+    }
+
     class LocalDicAdapter :
         ListAdapter<String, LocalDicViewHolder>(object : DiffUtil.ItemCallback<String>() {
 
@@ -141,11 +154,19 @@ class LocalDictionaryFragment: Fragment() {
             holder.itemView.setOnClickListener {
                 itemClickListener?.onItemClick(holder)
             }
+            holder.btnRemove?.setOnClickListener {
+                btnRemoveClickListener?.onRemoveClick(holder)
+            }
         }
 
         var itemClickListener: OnItemClickListener? = null
         interface OnItemClickListener {
             fun onItemClick(holder: LocalDicViewHolder): Boolean
+        }
+
+        var btnRemoveClickListener: OnRemoveClickListener? = null
+        interface OnRemoveClickListener {
+            fun onRemoveClick(holder: LocalDicViewHolder): Boolean
         }
     }
 
@@ -153,5 +174,6 @@ class LocalDictionaryFragment: Fragment() {
         RecyclerView.ViewHolder(binding.root) {
 
         val textView: TextView = binding.textViewItemTransform
+        val btnRemove = binding.btnRemove
     }
 }

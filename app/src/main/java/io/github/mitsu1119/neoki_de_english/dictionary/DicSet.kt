@@ -26,6 +26,11 @@ class DicSet {
             return true
         }
 
+        fun remove(internalDir: File, name: String) {
+            val dir = File(internalDir, "dics/$name")
+            if(dir.exists() and dir.isDirectory) dir.deleteRecursively()
+        }
+
         fun recording(internalDir: File, dicName: String, english: String, japanese: String) {
             val f = File(internalDir.absolutePath + "/" + dicName + "/words.txt")
             val fw = FileWriter(f, true)
