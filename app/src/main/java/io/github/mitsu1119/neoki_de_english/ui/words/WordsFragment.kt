@@ -83,7 +83,7 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
             nameInputDialog.setPositiveButton("OK") { dialog, _ ->
                 speak(editEnglish.text.toString(), internalDir.absolutePath + "/dics/" + dicName + "/" + editEnglish.text.toString() + ".mp3")
                 DicSet.recording(internalDir, "/dics/" + dicName, editEnglish.text.toString(), editJapanese.text.toString())
-                transformViewModel.setWord(Word(editEnglish.text.toString(), false))
+                transformViewModel.setWord(Word(editEnglish.text.toString(), editJapanese.text.toString(), false))
                 dialog.dismiss()
             }
 
@@ -198,6 +198,7 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
             val word = getItem(position)
 
             holder.textView.text = word.str
+            holder.tvJp.text = word.strJp
             holder.itemView.setOnClickListener {
                 itemClickListener?.onItemClick(holder)
             }
@@ -223,6 +224,7 @@ class WordsFragment: Fragment(), TextToSpeech.OnInitListener {
         RecyclerView.ViewHolder(binding.root) {
 
         val textView: TextView = binding.textViewItemWords
+        val tvJp: TextView = binding.textViewItemJp
         val cbRemove: CheckBox = binding.cbRemove
     }
 }

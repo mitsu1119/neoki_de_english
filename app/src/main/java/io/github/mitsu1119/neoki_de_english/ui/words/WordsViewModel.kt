@@ -23,7 +23,7 @@ class WordsViewModel: ViewModel() {
     }
     fun loadWords(internalDir: File, dicName: String) {
         val v = mutableListOf<Word>()
-        for(i in DicSet.loadOnlyEnglish(internalDir, dicName)) v.add(Word(i, false))
+        for(i in DicSet.load(internalDir, dicName)) v.add(Word(i.first, i.second, false))
         _words.value = v
     }
     val words: LiveData<MutableList<Word>> = _words
