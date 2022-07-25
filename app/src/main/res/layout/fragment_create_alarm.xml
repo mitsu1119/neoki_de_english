@@ -3,113 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:rotation="180"
-        android:scaleType="centerCrop"
-        android:src="@drawable/pastel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <TextView
-        android:id="@+id/Sat"
-        android:layout_width="35dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/galindo"
-        android:text="Sat"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toEndOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/Sun"
-        android:layout_width="35dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/galindo"
-        android:text="Sun"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.067"
-        app:layout_constraintStart_toEndOf="@+id/Sat"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <CheckBox
-        android:id="@+id/cbWed"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toEndOf="@+id/cbTue"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <CheckBox
-        android:id="@+id/cbMon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <CheckBox
-        android:id="@+id/cbThu"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toEndOf="@+id/cbWed"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
-    <CheckBox
-        android:id="@+id/cbFri"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toEndOf="@+id/cbThu"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
-
-    <CheckBox
-        android:id="@+id/cbTue"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toEndOf="@+id/cbMon"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <CheckBox
-        android:id="@+id/cbSun"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
-        app:layout_constraintStart_toEndOf="@+id/cbSat"
-        app:layout_constraintTop_toBottomOf="@+id/Sun" />
-
-    <CheckBox
-        android:id="@+id/cbSat"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toEndOf="@+id/cbFri"
-        app:layout_constraintTop_toBottomOf="@+id/Sat" />
+    android:layout_height="wrap_content"
+    tools:layout_editor_absoluteX="-49dp"
+    tools:layout_editor_absoluteY="-137dp">
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="314dp"
         android:layout_height="43dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/galindo"
         android:shadowColor="#000000"
         android:shadowDx="3"
@@ -117,47 +19,16 @@
         android:shadowRadius="3"
         android:text="[Day of Week]"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tp" />
-
-    <ImageView
-        android:id="@+id/under"
-        android:layout_width="293dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="64dp"
-        android:src="@drawable/under_line"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="367dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="28dp"
-        android:fontFamily="@font/galindo"
-        android:shadowColor="#000000"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="9"
-        android:text="Make Alarm"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TimePicker
         android:id="@+id/tp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
         android:fontFamily="@font/galindo"
         android:shadowColor="#000000"
         android:shadowDx="3"
@@ -165,18 +36,17 @@
         android:shadowRadius="3"
         android:text="[Time]"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="221dp"
         android:layout_height="45dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/galindo"
         android:shadowColor="#000000"
         android:shadowDx="3"
@@ -184,17 +54,18 @@
         android:shadowRadius="3"
         android:text="[Dictionary]"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cbThu" />
 
     <Spinner
         android:id="@+id/spnDic"
-        android:contentDescription="spinner"
         android:layout_width="207dp"
         android:layout_height="48dp"
+        android:contentDescription="spinner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -202,69 +73,161 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView6"
-        android:layout_width="35dp"
+        android:id="@+id/Sun"
+        android:layout_width="wrap_content"
         android:layout_height="19dp"
-        android:layout_marginStart="14dp"
         android:layout_marginTop="12dp"
+        android:layout_marginStart="20dp"
         android:fontFamily="@font/galindo"
-        android:text="Mon"
+        android:text="Sun"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/cbSun"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/cbSun"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
-        android:id="@+id/textView7"
-        android:layout_width="35dp"
+        android:id="@+id/Sat"
+        android:layout_width="wrap_content"
         android:layout_height="19dp"
-        android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/galindo"
-        android:text="Tue"
+        android:text="Sat"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/cbSat"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/cbFri"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <CheckBox
+        android:id="@+id/cbMon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <CheckBox
+        android:id="@+id/cbWed"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/cbTue"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="35dp"
+        android:layout_width="wrap_content"
         android:layout_height="19dp"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/galindo"
         android:text="Wed"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/cbWed"
+        app:layout_constraintHorizontal_bias="0.631"
+        app:layout_constraintStart_toStartOf="@+id/cbWed"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="35dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/galindo"
-        android:text="Thu"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+    <CheckBox
+        android:id="@+id/cbSat"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/cbFri"
+        app:layout_constraintTop_toBottomOf="@+id/Sat" />
+
+    <CheckBox
+        android:id="@+id/cbThu"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/cbWed"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <CheckBox
+        android:id="@+id/cbFri"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/cbThu"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="35dp"
+        android:layout_width="wrap_content"
         android:layout_height="19dp"
-        android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/galindo"
         android:text="Fri"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/cbFri"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/cbThu"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/galindo"
+        android:text="Thu"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/cbThu"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cbThu"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/galindo"
+        android:text="Tue"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/cbTue"
+        app:layout_constraintHorizontal_bias="0.351"
+        app:layout_constraintStart_toStartOf="@+id/cbTue"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <CheckBox
+        android:id="@+id/cbSun"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintStart_toEndOf="@+id/cbSat"
+        app:layout_constraintTop_toBottomOf="@+id/Sun" />
+
+    <CheckBox
+        android:id="@+id/cbTue"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/cbMon"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/galindo"
+        android:text="Mon"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/cbMon"
+        app:layout_constraintHorizontal_bias="0.272"
+        app:layout_constraintStart_toStartOf="@+id/cbMon"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
