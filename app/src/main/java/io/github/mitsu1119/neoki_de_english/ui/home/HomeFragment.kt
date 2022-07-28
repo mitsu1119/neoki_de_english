@@ -79,19 +79,23 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
             getBroadcast(context, 0, intent, 0)
         }
 
-        val cl = Calendar.getInstance()
-        cl.timeInMillis  = System.currentTimeMillis()
-        cl.set(Calendar.HOUR_OF_DAY, hour)
-        cl.set(Calendar.MINUTE, minute)
-        cl.set(Calendar.SECOND, 0)
-        cl.set(Calendar.MILLISECOND, 0)
-
         // アラームを入力された時刻にセット
+        for(i in (0..(dayOfWeeks.size - 1))) {
+            if(dayOfWeeks[i] == true) {
+                val cl: Calendar = Calendar.getInstance().apply {
+                    set(Calendar.DAY_OF_WEEK, (i + 1) % 7)
+                    set(Calendar.HOUR_OF_DAY, hour)
+                    set(Calendar.MINUTE, minute)
+                    set(Calendar.SECOND, 0)
+                    set(Calendar.MILLISECOND, 0)
+                }
+                alarm.setExact(AlarmManager.RTC_WAKEUP, cl.timeInMillis, pending)
+            }
+        }
         // alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, cl.timeInMillis, pending)
 
         // アラームを5秒後にセット
-        alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 1000, pending)
-        Log.v("yey", "Set Alarm")
+        // alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 1000, pending)
 
         var dow = ""
         dayOfWeeks.forEach { if(it) dow += "o" else dow += "x" }
