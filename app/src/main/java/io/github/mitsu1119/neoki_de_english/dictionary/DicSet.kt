@@ -7,6 +7,9 @@ import java.io.FileReader
 import java.io.FileWriter
 import java.nio.file.Files
 import java.nio.file.Paths
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class DicSet {
     companion object {
@@ -22,6 +25,7 @@ class DicSet {
             val new = internalDir.absolutePath + "/" + name
             Files.createDirectory(Paths.get(new))
             Files.createFile(Paths.get(new + "/words.txt"))
+            Files.createFile(Paths.get(new + "/hist.txt"))
 
             return true
         }
@@ -37,6 +41,12 @@ class DicSet {
             fw.write(japanese + "\n")
             fw.write(english + "\n")
             fw.close()
+
+            val ff = File(internalDir.absolutePath + "/" + dicName + "/hist.txt")
+            val fww = FileWriter(ff, true)
+            fww.write(english + "\n")
+            fww.write("01/01/1970\n")
+            fww.close()
         }
 
         fun loadOnlyEnglish(internalDir: File, dicName: String): ArrayList<String> {
@@ -67,6 +77,36 @@ class DicSet {
                 }
             }
             return ret
+        }
+
+        fun loadHistory(internalDir: File, dicName: String): ArrayList<Pair<String, Date>> {
+            val f = File(internalDir.absolutePath + "/dics/" + dicName + "/hist.txt")
+            var buf = 0
+            var ret = arrayListOf<Pair<String, Date>>()
+            BufferedReader(FileReader(f)).use { br ->
+                var line: String?
+                var jp = ""
+                while(br.readLine().also { line = it } != null) {
+                    if(buf == 0)  jp = line!!
+                    else {
+                        val s = SimpleDateFormat("mm/dd/yyyy").parse(jp)
+                        ret.add(Pair(line!!, s))
+                    }
+                    buf = buf xor 1
+                }
+            }
+            return ret
+        }
+
+        fun updateHistory(internalDir: File, dicName: String, hist: ArrayList<Pair<String, Date>>) {
+            val ff = File(internalDir.absolutePath + "/" + dicName + "/hist.txt")
+            val fww = FileWriter(ff, false)
+            for(i in hist) {
+                fww.write(i.first + "\n")
+                fww.write("${i.second.day.toString().padStart(2, '0')}/${i.second.month.toString().padStart(2, '0')}/${i.second.year.toString().padStart(4, '0')}\n")
+            }
+            fww.close()
+
         }
     }
 }

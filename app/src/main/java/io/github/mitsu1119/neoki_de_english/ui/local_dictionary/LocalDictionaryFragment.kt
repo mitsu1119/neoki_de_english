@@ -54,6 +54,8 @@ class LocalDictionaryFragment: Fragment() {
         val dicDir = File(internalDir.absolutePath + "/dics")
         transformViewModel.loadDicNames(dicDir)
 
+        transformViewModel.print()
+
         // 辞書の新規作成
         val btnAdd = binding.btnAdd
         btnAdd.setOnClickListener {
@@ -70,6 +72,7 @@ class LocalDictionaryFragment: Fragment() {
                 dialog.dismiss()
                 DicSet.create(dicDir, editText.text.toString())
                 transformViewModel.addDicName(editText.text.toString())
+                transformViewModel.print()
             }
 
             // キャンセルボタンでキャンセル

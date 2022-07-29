@@ -1,5 +1,6 @@
 package io.github.mitsu1119.neoki_de_english.ui.local_dictionary
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -24,4 +25,11 @@ class LocalDictionaryViewModel: ViewModel() {
         _dicNames.value?.remove(name)
     }
     val dicNames: LiveData<MutableList<String>> = _dicNames
+
+    fun print() {
+        Log.v("myTest", "[dictionary list]")
+        for(i in (0..(_dicNames.value!!.size - 1))) {
+            Log.v("myTest", _dicNames.value!!.get(i))
+        }
+    }
 }

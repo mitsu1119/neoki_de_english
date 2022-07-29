@@ -26,7 +26,22 @@ class AlarmReceiver: BroadcastReceiver() {
 
         // 最初だけ AlarmReceiver 側で出題する問題を選択
         val ds = DicSet.load(context.filesDir, dic)
-        val word = ds[java.util.Random().nextInt(ds.size)]
+        var hist = DicSet.loadHistory(context.filesDir, dic)
+
+        // できるだけ過去に出題した問題を出題
+        var n = 0
+        var nd = hist.get(0).second
+        for(i in (0..(hist.size - 1))) {
+            val day = hist[i].second
+            if(nd.before(day)) {
+                nd = day
+                n = i
+            }
+        }
+        hist[n] = hist.get(n).copy(second = nd)
+        DicSet.updateHistory(context.filesDir, dic, hist)
+
+        val word = ds[n]
         val eng = word.first
         val jp = word.second
         val audioFileName = context.filesDir.absolutePath + "/dics/" + dic + "/" + eng + ".mp3"

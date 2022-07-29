@@ -89,11 +89,12 @@ class HomeFragment : Fragment(), CreateAlarmFragment.NoticeDialogLister {
                     set(Calendar.SECOND, 0)
                     set(Calendar.MILLISECOND, 0)
                 }
+                // テスト: 州ではなく日付でセット
                 alarm.setExact(AlarmManager.RTC_WAKEUP, cl.timeInMillis, pending)
+                // アラームを週でセット
+                // alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, cl.timeInMillis, pending)
             }
         }
-        // alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, cl.timeInMillis, pending)
-
         // アラームを5秒後にセット
         // alarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 1000, pending)
 

@@ -60,6 +60,7 @@ class QuizFragment: Fragment() {
         val internalDir = requireContext().filesDir
 
         // 問題生成
+        // 最初の一問目（AlarmReceiver.ktにて設定）以外はランダム
         val ds = DicSet.load(internalDir, dicName)
         val word = ds[java.util.Random().nextInt(ds.size)]
         var eng = word.first
